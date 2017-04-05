@@ -114,6 +114,8 @@ io.emmet.eclipse,1.0.0.201303162055,plugins/io.emmet.eclipse_1.0.0.201303162055.
 javax.servlet,2.5.0.v201103041518,plugins/javax.servlet_2.5.0.v201103041518.jar,4,false
 javax.servlet.jsp,2.0.0.v201101211617,plugins/javax.servlet.jsp_2.0.0.v201101211617.jar,4,false
 json.simple,1.0.0.201307101900,plugins/json.simple_1.0.0.201307101900.jar,4,false
+me.oncereply.jscompressor,2.0.3,plugins/me.oncereply.jscompressor_2.0.3.jar,4,false
+me.oncereply.jscompressor.closurecompiler,1.0.3,plugins/me.oncereply.jscompressor.closurecompiler_1.0.3.jar,4,false
 org.apache.ant,1.8.2.v20120109-1030,plugins/org.apache.ant_1.8.2.v20120109-1030/,4,false
 org.apache.commons.codec,1.3.0.v201101211617,plugins/org.apache.commons.codec_1.3.0.v201101211617.jar,4,false
 org.apache.commons.el,1.0.0.v201101211617,plugins/org.apache.commons.el_1.0.0.v201101211617.jar,4,false
