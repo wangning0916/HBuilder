@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Export-Package: com.pandora.nodejs.thrift,org.apache.thrift,org.apache
+ .thrift.protocol,org.apache.thrift.transport
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.ui,com.pandora.li
+ braries
+Bundle-Vendor: DCloud
+Bundle-ClassPath: .,lib/libthrift-0.9.3.jar
+Bundle-Version: 1.0.0.201702102040
+Bundle-Name: HBuilder nodejs thrift
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.pandora.nodejs.thrift
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+
+

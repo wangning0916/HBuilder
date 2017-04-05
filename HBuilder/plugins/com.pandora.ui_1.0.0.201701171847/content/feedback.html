@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				font-family: "微软雅黑";
+				background-color: #EFEFF4;
+				overflow: hidden;
+			}
+			.content{
+				padding: 15px;
+			}
+			ul{
+				list-style: none;
+			}
+			.close {
+			    /* still bad on picking color */
+			    color: #9B9C9C;
+			    margin-right: 15px;
+			    margin-top: 15px;
+			    /* make a round button */
+			    /* center text */
+			   	border: 1px solid #EFEFF4;
+			    line-height: 15px;
+			    text-align: center;
+			    height: 15px;
+			    width: 15px;
+			    background: ;
+			    font-size: 18px;
+			    padding: 1px;
+			}
+			/* use cross as close button */
+			.close::before {
+			    content: "\00D7";
+			}
+			/* place the button on top-right */
+			.close {
+			    top: -10px;
+			    right: -10px;
+			    position: absolute;
+			}
+			.close:hover{
+				border: 1px solid #EB1123;
+				background: #EB1123;
+				height: 15px;
+			    width: 15px;
+			    color: #FFFFFF;
+			    line-height: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width: 100%;">
+			<p class="close" onclick="closeme()"></p>
+		</div>
+		<iframe id="frame" name="frame" width="647" height="709" style="border: 0px;" >
+			<html>
+				<head>
+					<title></title>
+				</head>
+				<body>
+					<div id="dataLoad"><!--页面载入显示-->
+					   <table width=100% height=100% border=0 align=center valign=middle>
+					    <tr height=50%><td align=center>&nbsp;</td></tr>
+					    <tr><td align=center></td></tr>
+					    <tr><td align=center>载入中，请稍后......</td></tr>
+					    <tr height=50%><td align=center>&nbsp;</td></tr>
+					   </table>
+					 </div>
+				</body>
+			</html>
+		</iframe>
+		<script src="js/jquery-2.0.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var msg = '';
+			function closeme () {
+				if(window.cefQuery){
+					window.cefQuery({
+					    request: '_closeWindow_',
+					    onSuccess: function(response) {},
+					    onFailure: function(error_code, error_message) {}
+					});
+				}else{
+					_closeWindow_();
+				}
+			}
+			document.addEventListener("DOMContentLoaded",function () {
+				console.log(11)
+				document.addEventListener("keydown",function (e) {
+	            	console.log(e.which);
+	            	if (e.which === 27) {
+						closeme ();
+					}
+	            })
+				var errcontent = "<div id='dataLoad'>"+
+				  "<table width=100% height=100% border=0 align=center valign=middle>" +
+				    "<tr height=50%><td align=center>&nbsp;</td></tr>" +
+				    "<tr><td align=center></td></tr>" +
+				    "<tr><td align=center>载入中，请稍后......</td></tr>" +
+				    "<tr height=50%><td align=center>&nbsp;</td></tr>" +
+				   "</table>" +
+				" </div>"
+				var iframe = window.frames['frame'];
+       			iframe.document.open();
+				iframe.document.write(errcontent);
+				iframe.onload=function(){
+					iframe.document.getElementById("dataLoad").innerHTML;
+				}
+				$.ajax({
+					type:"get",
+					url:"http://service.dcloud.net.cn/sta/feedBackHtml",
+					dataType:"jsonp",/*加上datatype*/
+					jsonpCallback:"setFrameDate",
+					success:function(){
+						
+					},
+					error:function () {
+						
+					}
+				});
+			})
+			function setFrameDate (data) {
+				var iframe = window.frames['frame'];
+       			iframe.document.open();
+				iframe.document.write(data.content);
+				iframe.onload=function(){
+					iframe.document.getElementById("dataLoad").innerHTML;
+				}
+			}
+			window.addEventListener('message',function(e){
+               msg = e.data;
+            },false);
+            
+		</script>
+	</body>
+</html>

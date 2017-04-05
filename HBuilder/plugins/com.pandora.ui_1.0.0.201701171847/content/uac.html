@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<style type="text/css">
+			body{
+				font-family: "微软雅黑";
+				font-size: 14px;
+				background: #Fefff6;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<html>
+			<head>
+				<title>确认uac</title>
+			</head>
+			<body>
+				<div style="width: 100%;float: left;margin: 20px 0px 0px 40px;">
+					<p style="float: left;width: 14px;font-size:12px;height: 14px;border-radius: 7px 7px 7px 7px;background: #FE6500;color: #FFF;text-align: center;line-height: 14px;">1</p>
+					<p style="float: left;line-height: 14px;margin: 0px 0px 0px 10px;;">点击</p>
+					<p style="float: left;line-height: 14px;color: #FE6500;font-weight: bold;">"确认开启"</p>
+					<p style="float: left;line-height: 14px;">按钮</p>
+				</div>
+				<div style="width: 100%;float: left;margin: 0px 0px 0px 40px;">
+					<p style="float: left;width: 14px;font-size:12px;height: 14px;border-radius: 7px 7px 7px 7px;background: #FE6500;color: #FFF;text-align: center;line-height: 14px;">2</p>
+					<p style="float: left;line-height: 14px;margin: 0px 0px 0px 10px;">请在弹出对话框中点击</p>
+					<p style="float: left;line-height: 14px;color: #FE6500;font-weight: bold;">"是(Y)"</p>
+					<p style="float: left;line-height: 14px;">按钮</p>
+				</div>
+				<div style="width: 100%;float: left;margin: 10px 0px 0px 40px;padding:  0px 0px 0px 15px;;">
+					<img src="img/uac_win8.jpg" width="350px"/>
+				</div>
+				<div class="form-actions" style="text-align: center;margin-top: 30px;width: 100%;float: left;">
+				  <button type="submit" class="btn" style="background: #D83E00;color: #FFF;width: 140px;"  id="sub" onclick="sub()">确认开启</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="javascript:;" onclick="closeme()" style="text-decoration: underline;">取消</a>
+				</div>
+				<script type="text/javascript">
+					function sub () {
+						if(window.cefQuery){
+							window.cefQuery({
+							    request: '_install_',
+							    onSuccess: function(response) {},
+							    onFailure: function(error_code, error_message) {}
+							});
+						}else{
+							_install_();
+						}
+					}
+					function closeme() {
+						if(window.cefQuery){
+							window.cefQuery({
+							    request: '_closeWindow_',
+							    onSuccess: function(response) {},
+							    onFailure: function(error_code, error_message) {}
+							});
+						}else{
+							_closeWindow_();
+						}
+					}
+				</script>
+			</body>
+		</html>
+	</body>
+</html>

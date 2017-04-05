@@ -1,0 +1,83 @@
+* {
+	font-family: "微软雅黑", verdana !important;
+}
+html,
+body,
+.container {
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+.container {
+	background: url(images/logo.png);
+	background-repeat: no-repeat;
+	background-position: center 40%;
+}
+.progressbar-no-animation {
+	position: absolute;
+	height: 20px;
+	width: 99%;
+	top: 65%;
+	left: 0;
+	text-align: center;
+	font-size: 14px;
+	color: #e05b1a;
+	display: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url(images/loading2.gif);
+}
+.progressbar {
+	position: absolute;
+	height: 20px;
+	width: 99%;
+	top: 75%;
+	left: 0;
+}
+.progressbar .progress {
+	width: 5px;
+	height: 5px;
+	margin-left: 10px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #e05b1a;
+	border-radius: 2px 2px 2px 2px;
+	display: block;
+	-webkit-animation-name: ui-progressbar-step1, ui-progressbar-step2, ui-progressbar-step3;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	animation-name: ui-progressbar-step1, ui-progressbar-step2, ui-progressbar-step3;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@-webkit-keyframes ui-progressbar-step1 {
+	15% {
+		left: 30%;
+	}
+}
+@-webkit-keyframes ui-progressbar-step2 {
+	15% {
+		left: 50%;
+	}
+	50% {
+		left: 70%;
+	}
+}
+@-webkit-keyframes ui-progressbar-step3 {
+	15% {
+		left: 30%;
+	}
+	50% {
+		left: 50%;
+	}
+	85% {
+		left: 70%;
+	}
+	100% {
+		left: 98%;
+	}
+}

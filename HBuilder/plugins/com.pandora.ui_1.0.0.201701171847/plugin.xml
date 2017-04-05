@@ -1,0 +1,3660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.pandora.ui.quickAccess" name="quickAccessMenu" schema="schema/quickAccess.exsd"/>
+   <extension
+         point="org.eclipse.ui.commands">
+     
+       <command
+            categoryId="org.eclipse.ui.category.help"
+            defaultHandler="com.pandora.ui.action.AboutHandler"
+            description="%command.aboutAction.description"
+            helpContextId="org.eclipse.ui.about_action_context"
+            id="com.pandora.ui.aboutAction"
+            name="%command.aboutAction.name"/>
+       <command
+            categoryId="org.eclipse.ui.category.window"
+            defaultHandler="com.pandora.ui.action.FullScreenHandler"
+            id="com.pandora.ui.action.FullScreenHandler"
+            name="%command.label.maximizePart"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.ui.select.ruby.select_tag_content"
+            name="%command.label.select_tag_content"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.ui.select.ruby.select_tag_pair_and_content"
+            name="%command.label.select_tag_pair_and_content"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.ui.tool.ruby.wordcount"
+            name="%command.label.wordcount"/>
+       <command
+            categoryId="org.eclipse.ui.category.window"
+            id="com.pandora.ui.tool.ruby.installbundle"
+            name="%command.label.installbundle"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.ui.view.ruby.bigger"
+            name="%command.label.bigger"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.ui.common.ruby.loadlog"
+            name="加载Ruby脚本"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.ui.view.ruby.smaller"
+            name="%command.label.smaller"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.ui.edit.ruby.html.unwrap"
+            name="去包围(&amp;M)"/>
+            
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.emmet.eclipse.commands.match_pair_outward"
+            name="%command.label.match_pair_outward"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.emmet.eclipse.commands.match_pair_inward"
+            name="%command.label.match_pair_inward"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.emmet.eclipse.commands.select_previous_item"
+            name="%command.label.select_previous_item"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.emmet.eclipse.commands.select_next_item"
+            name="%command.label.select_next_item"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.emmet.eclipse.commands.prev_edit_point"
+            name="%command.label.prev_edit_point"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.emmet.eclipse.commands.next_edit_point"
+            name="%command.label.next_edit_point"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.emmet.eclipse.commands.remove_tag"
+            name="删除当前标签(&amp;T)"/>
+       <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.pandora.emmet.eclipse.commands.toggle_comment"
+            name="注释当前标签(&amp;T)"/>
+       <command
+            categoryId="org.eclipse.ui.category.window"
+            defaultHandler="com.pandora.ui.action.ThemeHandler"
+            id="com.pandora.ui.action.ThemeHandler"
+            name="视觉主题设置"/>
+       <command
+            categoryId="org.eclipse.ui.category.window"
+            defaultHandler="com.pandora.ui.action.ScheduleEventHandler"
+            id="com.pandora.ui.tool.schedule"
+            name="开启启动速度优化服务"/> 
+       <!-- ask问题通知
+        <command
+            categoryId="org.eclipse.ui.category.window"
+            defaultHandler="com.pandora.ui.action.NoticeHandler"
+            id="com.pandora.ui.action.NoticeHandler"
+            name="ASK通知"/>
+       -->
+   
+      <!-- Tips设置，修改配置
+      <command
+            categoryId="org.eclipse.ui.category.window"
+            defaultHandler="com.pandora.ui.action.TipsEditer"
+            id="com.pandora.ui.help.tipsediter"
+            name="Tips配置"/>
+            -->
+        <command
+            categoryId="org.eclipse.ui.category.window"
+            defaultHandler="com.pandora.ui.action.SwitchCodeDirHandler"
+            id="com.pandora.ui.command.switch"
+            name="变更默认代码存放目录(&amp;W)"/>
+            
+        <command
+            categoryId="org.eclipse.ui.category.window"
+            defaultHandler="com.pandora.ui.action.ValitationManagerHandler"
+            id="com.pandora.ui.command.validation"
+            name="语法验证器设置(&amp;V)"/>
+            
+        <command
+            categoryId="org.eclipse.ui.category.window"
+            id="com.pandora.ui.command.importFramework"
+            name="引入框架语法提示(&amp;F)">
+         </command>
+            
+        <command
+	        name="%command.label.linkWithEditor"
+	        description="%command.label.linkWithEditor"
+	        categoryId="org.eclipse.ui.category.navigate"
+	        id="com.pandora.ui.linkWithEditor">
+	        <state class="org.eclipse.ui.handlers.RegistryToggleState:true"
+	               id="org.eclipse.ui.commands.toggleState">
+	        </state>
+	  </command>
+        <command
+	        name="%command.label.toggleBlockSelectionMode"
+	        description="%command.label.toggleBlockSelectionMode"
+	        categoryId="org.eclipse.ui.category.edit"
+	        id="com.pandora.ui.toggleBlockSelectionMode">
+	        <commandParameter id="id" optional="false" name="id" />
+	        <state class="org.eclipse.ui.handlers.RegistryToggleState:false"
+	               id="org.eclipse.ui.commands.toggleState">
+	        </state>
+	  </command>
+	  <command
+	        name="%command.label.toggleMarkOccurrences"
+	        description="%command.label.toggleMarkOccurrences"
+	        categoryId="org.eclipse.ui.category.edit"
+	        id="com.pandora.ui.toggleMarkOccurrences">
+	        <commandParameter id="id" optional="false" name="id" />
+	        <state class="org.eclipse.ui.handlers.RegistryToggleState:false"
+	               id="org.eclipse.ui.commands.toggleState">
+	        </state>
+	  </command>
+	  
+	  <command
+	        name="显示缩进对齐线"
+	        description="显示缩进对齐线"
+	        categoryId="org.eclipse.ui.category.edit"
+	        id="com.pandora.ui.toggleShowIndentGuide">
+	        <commandParameter id="id" optional="false" name="id" />
+	        <state class="org.eclipse.ui.handlers.RegistryToggleState:true"
+	               id="org.eclipse.ui.commands.toggleState">
+	        </state>
+	  </command>
+	  
+	  <command
+	        name="%command.label.toggleShowWhitespaceCharacters"
+	        description="%command.label.toggleShowWhitespaceCharacters"
+	        categoryId="org.eclipse.ui.category.edit"
+	        id="com.pandora.ui.toggleShowWhitespaceCharacters">
+	        <commandParameter id="id" optional="false" name="id" />
+	        <state class="org.eclipse.ui.handlers.RegistryToggleState:false"
+	               id="org.eclipse.ui.commands.toggleState">
+	        </state>
+	  </command>
+	  
+	  <command
+	        name="%command.label.lineNumberToggle"
+	        description="%command.label.lineNumberToggle"
+	        categoryId="org.eclipse.ui.category.textEditor"
+	        id="com.pandora.ui.lineNumberToggle">
+	        <commandParameter id="id" optional="false" name="id" />
+	        <state class="org.eclipse.ui.handlers.RegistryToggleState:false"
+	               id="org.eclipse.ui.commands.toggleState">
+	        </state>
+	  </command>
+   <command
+         defaultHandler="com.pandora.ui.DiscussControlContributionHandler"
+         id="com.pandora.ui.discuss.command"
+         categoryId="com.aptana.ui.category"
+         name="ALT+F1">
+   </command>
+   <command
+         defaultHandler="com.pandora.ui.FeedbackContributionHandler"
+         id="com.pandora.ui.feedback.command"
+         categoryId="com.aptana.ui.category"
+         name="ALT+F3">
+   </command>
+   <command
+         defaultHandler="com.pandora.ui.EventControlContributionHandler"
+         id="com.pandora.ui.event.command"
+         categoryId="com.aptana.ui.category"
+         name="ALT+F2">
+   </command>
+   <command
+         defaultHandler="com.pandora.ui.UserInfoControlContributionHandler"
+         id="com.pandora.ui.userInfo.command"
+         categoryId="com.aptana.ui.category"
+         name="用户信息">
+   </command>
+   <!-- 注释问答功能-->
+   <command
+         defaultHandler="com.pandora.ui.AsksControlContributionHandler"
+         id="com.pandora.ui.asks.command"
+         categoryId="com.aptana.ui.category"
+         name="问答">
+   </command>
+   <command
+         defaultHandler="com.pandora.ui.DocsControlContributionHandler"
+         id="com.pandora.ui.docs.command"
+         categoryId="com.aptana.ui.category"
+         name="问答">
+   </command>
+   <command
+         defaultHandler="com.pandora.ui.WebperspectiveDevpHandler"
+         id="com.pandora.ui.webdevpPer.command"
+         categoryId="com.aptana.ui.category"
+         name="开发视图快捷键">
+   </command>
+   <command
+         defaultHandler="com.pandora.ui.RealperspectiveDevpHandler"
+         id="com.pandora.ui.realdevpPer.command"
+         categoryId="com.aptana.ui.category"
+         name="边看边改快捷键">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.source.comment_banner"
+         categoryId="com.aptana.ui.category"
+         name="注释分隔条(&amp;N)">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.source.comment_header"
+         categoryId="com.aptana.ui.category"
+         name="文件头注释(&amp;N)">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.html.condition_comment.ie"
+         categoryId="com.aptana.ui.category"
+         name="IE条件注释-如果运行在IE下">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.html.condition_comment.ie_6_and_below"
+         categoryId="com.aptana.ui.category"
+         name="IE条件注释-如果运行在IE 6或以下版本">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.html.condition_comment.ie_6"
+         categoryId="com.aptana.ui.category"
+         name="IE条件注释-如果运行在IE 6下">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.html.condition_comment.ie_7_and_above"
+         categoryId="com.aptana.ui.category"
+         name="IE条件注释-如果运行在IE 7或以上版本">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.html.condition_comment.ie_8_and_above"
+         categoryId="com.aptana.ui.category"
+         name="IE条件注释-如果运行在IE 8或以上版本">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.html.condition_comment.ie_9_and_above"
+         categoryId="com.aptana.ui.category"
+         name="IE条件注释-如果运行在IE 9或以上版本">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.html.wrap.wrap_selection_in_tag_pair"
+         categoryId="com.aptana.ui.category"
+         name="对选中的标签加包围标签">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.html.wrap.wrap_lines_in_tag_pairs"
+         categoryId="com.aptana.ui.category"
+         name="对选中的每一个标签加包围标签">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.text.sort.sort_lines"
+         categoryId="com.aptana.ui.category"
+         name="行排序(&amp;L)">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.text.sort.sort_and_remove_duplicates"
+         categoryId="com.aptana.ui.category"
+         name="排序移除重复行(&amp;D)">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.text.sort.randomize_lines"
+         categoryId="com.aptana.ui.category"
+         name="随机排列行(&amp;R)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.insert.ruby.html.convert_to_entities"
+         categoryId="com.aptana.ui.category"
+         name="Convert Character / Selection to Entities">
+   </command>
+   <command
+         id="com.pandora.ui.insert.ruby.html.convert_to_entities_excluding_tags"
+         categoryId="com.aptana.ui.category"
+         name="Convert Character / Selection to Entities Excl. Tags">
+   </command>
+   <command
+         id="com.pandora.ui.insert.ruby.html.decode_entities"
+         categoryId="com.aptana.ui.category"
+         name="Decode Entities in Line / Selection">
+   </command>
+   
+   <command
+         id="com.pandora.ui.insert.ruby.html.nbsp"
+         categoryId="com.aptana.ui.category"
+         name="Non-Breaking Space">
+   </command>
+   
+    <command
+         id="com.pandora.ui.insert.ruby.html.insert_entity"
+         categoryId="com.aptana.ui.category"
+         name="Insert Entity...">
+   </command>
+   
+    <command
+         id="com.pandora.ui.insert.ruby.html.insert_tag_pair"
+         categoryId="com.aptana.ui.category"
+         name="H&amp;TML标签(使用当前词)">
+   </command>
+    <command
+         id="com.pandora.ui.insert.ruby.html.insert_close_tag"
+         categoryId="com.aptana.ui.category"
+         name="插入结尾闭合标签(&amp;E)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.insert.ruby.html.html_5"
+         categoryId="com.aptana.ui.category"
+         name="HTML - 5 &lt;!DOCTYPE HTML&gt;">
+   </command>
+   <command
+         id="com.pandora.ui.insert.ruby.html.html_4_strict"
+         categoryId="com.aptana.ui.category"
+         name="HTML - 4.01 Strict">
+   </command>
+    <command
+         id="com.pandora.ui.insert.ruby.html.html_4_transitional"
+         categoryId="com.aptana.ui.category"
+         name="HTML - 4.01 Transitional">
+   </command>
+    <command
+         id="com.pandora.ui.insert.ruby.html.xhtml_1_frameset"
+         categoryId="com.aptana.ui.category"
+         name="XHTML - 1.0 Frameset">
+   </command>
+    <command
+         id="com.pandora.ui.insert.ruby.html.xhtml_1_strict"
+         categoryId="com.aptana.ui.category"
+         name="XHTML - 1.0 Strict">
+   </command>
+    <command
+         id="com.pandora.ui.insert.ruby.html.xhtml_1_transitional"
+         categoryId="com.aptana.ui.category"
+         name="XHTML - 1.0 Transitional">
+   </command>
+    <command
+         id="com.pandora.ui.insert.ruby.html.xhtml_11"
+         categoryId="com.aptana.ui.category"
+         name="XHTML - 1.1">
+   </command>
+   
+   <command
+         id="com.pandora.ui.insert.ruby.text.add_line_numbers"
+         categoryId="com.aptana.ui.category"
+         name="添加行号(&amp;L)">
+   </command>
+   <command
+         id="com.pandora.ui.insert.ruby.text.copyright"
+         categoryId="com.aptana.ui.category"
+         name="版权信息(&amp;C)">
+   </command>
+   <command
+         id="com.pandora.ui.insert.ruby.text.current_date"
+         categoryId="com.aptana.ui.category"
+         name="当前时间(YYYY-MM-DD)(&amp;T)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.transfer.ruby.html.url_escape"
+         categoryId="com.aptana.ui.category"
+         name="URL编码(&amp;E)">
+   </command>
+   <command
+         id="com.pandora.ui.transfer.ruby.html.url_unescape"
+         categoryId="com.aptana.ui.category"
+         name="URL解码(&amp;D)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.transfer.ruby.math.decimal_to_hex"
+         categoryId="com.aptana.ui.category"
+         name="十进制转十六进制">
+   </command>
+   <command
+         id="com.pandora.ui.transfer.ruby.math.decimal_to_octal"
+         categoryId="com.aptana.ui.category"
+         name="十进制转八进制">
+   </command>
+   <command
+         id="com.pandora.ui.transfer.ruby.math.hex_to_decimal"
+         categoryId="com.aptana.ui.category"
+         name="十六进制转十进制">
+   </command>
+   <command
+         id="com.pandora.ui.transfer.ruby.math.octal_to_decimal"
+         categoryId="com.aptana.ui.category"
+         name="八进制转十进制">
+   </command>
+   
+   <command
+         id="com.pandora.ui.search.ruby.text.distill"
+         categoryId="com.aptana.ui.category"
+         name="提取内容(&amp;C)">
+   </command>
+   <command
+         id="com.pandora.ui.search.ruby.text.copy_matching_lines"
+         categoryId="com.aptana.ui.category"
+         name="复制匹配的行到新文档(&amp;L)">
+   </command>
+   <command
+         id="com.pandora.ui.search.ruby.text.copy_non_matching_lines"
+         categoryId="com.aptana.ui.category"
+         name="复制没有匹配的行到新文档(&amp;O)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.search.ruby.html.docs_for_tag"
+         categoryId="com.aptana.ui.category"
+         name="HTML标签规范(&amp;P)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.search.ruby.css.docs_for_property"
+         categoryId="com.aptana.ui.category"
+         name="CSS属性规范(&amp;D)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.search.ruby.css.validate"
+         categoryId="com.aptana.ui.category"
+         name="CSS语法校验(&amp;V)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.search.ruby.html.validate_syntax"
+         categoryId="com.aptana.ui.category"
+         name="HTML语法校验(&amp;V)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.insert.ruby.html.quick_br"
+         categoryId="com.aptana.ui.category"
+         name="插入br(&amp;B)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.edit.ruby.html.reformat_document"
+         categoryId="com.aptana.ui.category"
+         name="BeautifyJS(&amp;B)">
+   </command>
+   
+   <command
+         id="com.pandora.ui.insert.ruby.source.newline"
+         categoryId="com.aptana.ui.category"
+         name="插入回车符(&amp;B)">
+   </command>
+   <command
+         id="com.pandora.ui.insert.ruby.source.insert_terminator"
+         categoryId="com.aptana.ui.category"
+         name="补全语句结尾符(&amp;T)">
+   </command>
+   <command
+         id="com.pandora.ui.edit.ruby.source.toggle_case"
+         categoryId="com.aptana.ui.category"
+         name="首字大写(&amp;C)">
+   </command>
+   
+   		<command
+		    id="com.pandora.ui.command.openurl"
+		    name="在外部浏览器中打开指定url">
+		    <commandParameter name="url" id="url" />
+ 		</command>
+	<command
+	    id="com.pandora.ui.command.clear_console"
+	    defaultHandler="com.pandora.ui.command.ClearConsoleHandler"
+	    name="清空控制台">
+	</command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+          <handler
+               commandId="com.pandora.ui.insert.ruby.source.newline" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+          <handler
+               commandId="com.pandora.ui.insert.ruby.source.insert_terminator" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+          <handler
+               commandId="com.pandora.ui.edit.ruby.source.toggle_case" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.reformat_document" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.quick_br" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.search.ruby.html.validate_syntax" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.search.ruby.css.docs_for_property" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	           	<reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.search.ruby.css.validate" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+          <handler
+               commandId="com.pandora.ui.search.ruby.html.docs_for_tag" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+          <handler
+               commandId="com.pandora.ui.search.ruby.text.distill" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+          <handler
+               commandId="com.pandora.ui.search.ruby.text.copy_matching_lines" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+          <handler
+               commandId="com.pandora.ui.search.ruby.text.copy_non_matching_lines" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+          <handler
+               commandId="com.pandora.ui.transfer.ruby.math.decimal_to_hex" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+          <handler
+               commandId="com.pandora.ui.transfer.ruby.math.decimal_to_octal" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+          <handler
+               commandId="com.pandora.ui.transfer.ruby.math.hex_to_decimal" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+          <handler
+               commandId="com.pandora.ui.transfer.ruby.math.octal_to_decimal" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.transfer.ruby.html.url_escape" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.transfer.ruby.html.url_unescape" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.insert.ruby.text.add_line_numbers" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.insert.ruby.text.copyright" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.insert.ruby.text.current_date" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.html_4_strict" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.html_5" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.html_4_transitional" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.xhtml_1_frameset" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.xhtml_1_strict" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.xhtml_1_transitional" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.xhtml_11" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         
+         
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.insert_tag_pair" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.insert_close_tag" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.nbsp" 
+               class="com.pandora.ui.action.NBSPCommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.insert.ruby.html.insert_entity" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         
+         
+          <handler
+               commandId="com.pandora.ui.insert.ruby.html.convert_to_entities" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+          <handler
+               commandId="com.pandora.ui.insert.ruby.html.convert_to_entities_excluding_tags" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+          <handler
+               commandId="com.pandora.ui.insert.ruby.html.decode_entities" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.edit.ruby.text.sort.sort_lines" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.text.sort.sort_and_remove_duplicates" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.text.sort.randomize_lines" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.wrap.wrap_selection_in_tag_pair" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.wrap.wrap_lines_in_tag_pairs" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_6_and_below" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_6" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_7_and_above" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_8_and_above" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_9_and_above" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isHtml"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.source.comment_banner" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.source.comment_header" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.emmet.eclipse.commands.match_pair_outward" 
+               class="io.emmet.eclipse.handlers.DefaultAction">
+              <enabledWhen>
+                <reference definitionId="com.pandora.expression.isHtml"/>
+	          </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.emmet.eclipse.commands.match_pair_inward" 
+               class="io.emmet.eclipse.handlers.DefaultAction">
+              <enabledWhen>
+                <reference definitionId="com.pandora.expression.isHtml"/>
+	          </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.emmet.eclipse.commands.select_previous_item" 
+               class="io.emmet.eclipse.handlers.DefaultAction">
+              <enabledWhen>
+              	<or>
+              		 <reference definitionId="com.pandora.expression.isHtml"/>
+              		 <reference definitionId="com.pandora.expression.isCss"/>
+              	</or>
+	          </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.emmet.eclipse.commands.select_next_item" 
+               class="io.emmet.eclipse.handlers.DefaultAction">
+              <enabledWhen>
+              	<or>
+              		 <reference definitionId="com.pandora.expression.isHtml"/>
+              		 <reference definitionId="com.pandora.expression.isCss"/>
+              	</or>
+	          </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.emmet.eclipse.commands.prev_edit_point" 
+               class="io.emmet.eclipse.handlers.DefaultAction">
+              <enabledWhen>
+                <reference definitionId="com.pandora.expression.isHtml"/>
+	          </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.emmet.eclipse.commands.next_edit_point" 
+               class="io.emmet.eclipse.handlers.DefaultAction">
+              <enabledWhen>
+                <reference definitionId="com.pandora.expression.isHtml"/>
+	          </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.emmet.eclipse.commands.remove_tag" 
+               class="io.emmet.eclipse.handlers.DefaultAction">
+              <enabledWhen>
+                <reference definitionId="com.pandora.expression.isHtml"/>
+	          </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.emmet.eclipse.commands.toggle_comment" 
+               class="io.emmet.eclipse.handlers.DefaultAction">
+              <enabledWhen>
+              	<or>
+              		 <reference definitionId="com.pandora.expression.isHtml"/>
+              		 <reference definitionId="com.pandora.expression.isCss"/>
+              	</or>
+	          </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.select.ruby.select_tag_content" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.copy.duplicate_line" 
+               class="com.pandora.ui.action.DuplicateLineHandler">
+               <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+         <handler
+               commandId="com.pandora.ui.select.selectLines" 
+               class="com.pandora.ui.action.SelectLinesHandler">
+               <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         
+         <!--handler
+               commandId="com.pandora.ui.edit.ruby.text.joinline" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler-->
+         
+         <handler
+               commandId="com.pandora.ui.select.ruby.select_tag_pair_and_content" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+             <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.tool.ruby.wordcount" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+              <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.tool.ruby.installbundle" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+         </handler>
+         <handler
+               commandId="com.pandora.ui.view.ruby.bigger" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+              <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.common.ruby.loadlog" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+         </handler>
+         <handler
+               commandId="com.pandora.ui.view.ruby.smaller" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+              <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.edit.ruby.html.unwrap" 
+               class="com.pandora.ui.action.CommandMenuHandler">
+              <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler commandId="com.pandora.ui.linkWithEditor"
+         	class="com.pandora.ui.command.LinkEditorHander">
+              <enabledWhen>
+		         <with
+		               variable="activePart">
+		            <or>
+				       <instanceof
+			                 value="org.eclipse.ui.texteditor.ITextEditor">
+			           </instanceof>
+				       <instanceof
+			                 value="org.eclipse.ui.navigator.resources.ProjectExplorer">
+			           </instanceof>
+		            </or>
+		         </with>
+	         </enabledWhen>
+         </handler>
+         <handler commandId="com.pandora.ui.toggleBlockSelectionMode"
+         	class="com.pandora.ui.command.CommandProxyCommandHandler">
+              <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isTextEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler commandId="com.pandora.ui.toggleMarkOccurrences"
+         	class="com.pandora.ui.command.CommandProxyCommandHandler">
+              <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isTextEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler commandId="com.pandora.ui.toggleShowWhitespaceCharacters"
+         	class="com.pandora.ui.command.CommandProxyCommandHandler">
+              <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isTextEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler commandId="com.pandora.ui.toggleShowIndentGuide"
+         	class="com.pandora.ui.command.CommandProxyCommandHandler">
+              <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isTextEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler commandId="com.pandora.ui.lineNumberToggle"
+         	class="com.pandora.ui.command.CommandProxyCommandHandler">
+              <enabledWhen>
+	            <reference definitionId="com.pandora.expression.isTextEditor"/>
+	         </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.command.importFramework"
+               class="com.pandora.ui.command.ImportFrameworkAction">
+               <enabledWhen>
+	               <reference
+                      definitionId="com.pandora.expression.isProject">
+	               </reference>
+               </enabledWhen>
+         </handler>
+         <handler
+               commandId="com.pandora.ui.command.openurl"
+               class="com.pandora.ui.command.OpenUrlHander">
+         </handler>
+   </extension>
+   <extension
+       point="org.eclipse.core.expressions.propertyTesters">
+	    <propertyTester
+	          class="com.pandora.ui.HMobileProjectStatusTester"
+	          id="com.pandora.ui.HMobileProjectStatusTester"
+	          namespace="com.pandora.ui.HMobileProject.test"
+	          properties="isHMobile"
+	          type="java.lang.Object">
+	    </propertyTester>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.menus">
+	 <menuContribution
+            locationURI="toolbar:org.eclipse.ui.trim.status">
+         <toolbar
+               id="com.appcelerator.ui.trim">
+            <dynamic
+                  class="com.pandora.ui.HomeControlContribution" id="studio.home">
+            </dynamic>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.trim.status?befor=com.appcelerator.ui.trim">
+         <toolbar
+               id="com.pandora.ui.openWith">
+            <dynamic
+                  class="com.pandora.ui.OpenWithControlContribution" id="studio.openWith">
+            </dynamic>
+         </toolbar>
+      </menuContribution>
+	 
+	 <menuContribution
+            locationURI="toolbar:org.eclipse.ui.trim.command2">
+         <toolbar
+               id="com.pandora.ui.Perspective">
+           	<command
+              commandId="com.pandora.ui.asks.command"
+              icon="icons/ask.png"
+              style="push">
+            </command>
+            <!--<command
+                  commandId="com.pandora.ui.discuss.command"
+                  icon="icons/buttondiss.png"
+                  style="push">
+            </command>
+            <control
+                  class="com.pandora.ui.FeedBackButton"
+                  id="com.pandora.ui.FeedBackButton">
+            </control>-->
+            <control
+                  class="com.pandora.ui.PerspectiveCombo"
+                  id="com.pandora.ui.PerspectiveCombo">
+            </control>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.bindings">
+      <scheme   
+            id="hbuilder.accelerator"
+            name="%scheme.name"   
+            parentId="org.eclipse.ui.defaultAcceleratorConfiguration">   
+      </scheme>
+       <key
+            commandId="com.pandora.ui.command.clear_console"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M3+Q">
+      </key>
+       <key
+            commandId="com.pandora.ui.insert.ruby.source.newline"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M2+Enter">
+      </key>
+      
+      <key
+            commandId="org.eclipse.ui.navigate.backwardHistory"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            platform="cocoa"
+            sequence="M4+M3+ARROW_LEFT">
+      </key>
+      
+      <key
+            commandId="org.eclipse.ui.navigate.forwardHistory"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator" 
+            platform="cocoa"
+            sequence="M4+M3+ARROW_RIGHT">
+      </key>
+      
+      <key
+            commandId="com.pandora.ui.insert.ruby.html.quick_br"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M2+Enter">
+      </key>
+      
+       <key
+            commandId="com.pandora.ui.insert.ruby.source.insert_terminator"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M3+Enter">
+      </key>
+      
+       <key
+            commandId="com.pandora.ui.edit.ruby.source.toggle_case"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+-">
+      </key>
+      <key
+            commandId="com.pandora.ui.edit.ruby.source.toggle_case"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            platform="cocoa"
+            sequence="M1+M2+_">
+      </key>
+      
+      <key
+            commandId="com.pandora.ui.insert.ruby.html.nbsp"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M2+Space">
+      </key>
+      
+      <key
+            commandId="com.pandora.ui.search.ruby.html.validate_syntax"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+V">
+      </key>
+      
+      <key
+            commandId="com.pandora.ui.search.ruby.css.validate"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+V">
+      </key>
+      
+      <key
+            commandId="com.pandora.ui.search.ruby.html.docs_for_tag"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+H">
+      </key>
+      <key
+            commandId="com.pandora.ui.transfer.ruby.math.decimal_to_hex"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+6">
+      </key>
+      <key
+            commandId="com.pandora.ui.transfer.ruby.math.decimal_to_octal"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+8">
+      </key>
+      <key
+            commandId="com.pandora.ui.transfer.ruby.math.hex_to_decimal"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+9">
+      </key>
+      <key
+            commandId="com.pandora.ui.transfer.ruby.math.octal_to_decimal"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+0">
+      </key>
+      
+      <key
+            commandId="com.pandora.ui.transfer.ruby.html.url_escape"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+7">
+      </key>
+      <key
+            commandId="com.pandora.ui.transfer.ruby.html.url_unescape"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+5">
+      </key>
+      <key
+            commandId="com.pandora.ui.insert.ruby.html.insert_tag_pair"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+,">
+      </key>
+      <key
+            commandId="com.pandora.ui.edit.ruby.html.wrap.wrap_selection_in_tag_pair"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+9">
+      </key>
+      <key
+            commandId="com.pandora.ui.edit.ruby.source.comment_banner"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+B">
+      </key>
+      <!--
+      <key
+            commandId="com.aptana.editor.common.scripting.commands.FilterThroughCommand"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+M3+R">
+      </key>-->
+      <key
+            commandId="org.eclipse.ui.navigate.openResource"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+T">
+      </key>
+      <key
+            sequence="M2+M3+Q P"
+            contextId="org.eclipse.ui.contexts.window"
+            commandId="org.eclipse.ui.views.showView"
+            schemeId="hbuilder.accelerator">
+            <parameter 
+            	id="org.eclipse.ui.views.showView.viewId"
+            	value="org.eclipse.ui.navigator.ProjectExplorer" />
+      </key>
+      <!--key
+            sequence="M1+M2+ARROW_LEFT"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="org.eclipse.ui.edit.text.select.wordPrevious"
+            schemeId="hbuilder.accelerator">
+      </key>
+      <key
+            sequence="M1+M2+ARROW_RIGHT"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="org.eclipse.ui.edit.text.select.wordNext"
+            schemeId="hbuilder.accelerator">
+      </key-->
+      <key
+            sequence="M1+M3+ARROW_UP"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.pandora.emmet.eclipse.commands.match_pair_outward"
+            schemeId="hbuilder.accelerator">
+      </key>
+      <!--key
+            sequence="M1+M2+A"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.pandora.emmet.eclipse.commands.match_pair_inward"
+            schemeId="hbuilder.accelerator">
+      </key-->
+      <key
+            sequence="M1+M3+ARROW_LEFT"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.pandora.emmet.eclipse.commands.select_previous_item"
+            schemeId="hbuilder.accelerator">
+      </key>
+      <key
+            sequence="M1+M3+ARROW_RIGHT"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.pandora.emmet.eclipse.commands.select_next_item"
+            schemeId="hbuilder.accelerator">
+      </key>
+      <!--key
+            commandId="org.eclipse.ui.edit.text.goto.wordPrevious"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+ARROW_LEFT">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.goto.wordNext"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+ARROW_RIGHT">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.goto.textStart"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+HOME">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.goto.textEnd"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+END">
+      </key-->
+      <key
+            commandId="com.aptana.editor.common.gotoMatchingBracket"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+[">
+      </key>
+      <key
+            commandId="com.aptana.editor.common.gotoQuotationMmarks"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+'">
+      </key>
+      <key
+            commandId="com.pandora.emmet.eclipse.commands.prev_edit_point"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+ARROW_UP">
+      </key>
+      <key
+            commandId="com.pandora.emmet.eclipse.commands.next_edit_point"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+ARROW_DOWN">
+      </key>
+      <key
+            commandId="org.eclipse.ui.navigate.previous"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M2+ARROW_UP">
+      </key>
+      <key
+            commandId="org.eclipse.ui.navigate.next"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M2+ARROW_DOWN">
+      </key>
+      <!--key
+            commandId="org.eclipse.ui.edit.text.scroll.lineUp"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+ARROW_UP">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.scroll.lineDown"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+ARROW_DOWN">
+      </key-->
+      <key
+            commandId="com.aptana.editor.commands.bookmark"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M1+B">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.collapse"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M1+-">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.collapse"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M1+NUMPAD_DECIMAL">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.expand"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M1+=">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.expand"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M1+NUMPAD_ADD">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.collapse_all"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M1+*">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.expand_all"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M1+/">
+      </key>
+      <key
+            commandId="com.aptana.editor.js.openDeclaration"
+            contextId="com.aptana.editor.context"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+M1+D">
+      </key>
+      <key
+            commandId="com.aptana.editor.js.openDeclaration"
+            contextId="com.aptana.editor.context"
+            sequence="F12"
+            schemeId="hbuilder.accelerator" >
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.goto.line"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+G">
+      </key>
+      <key
+            commandId="org.eclipse.ui.window.nextView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+F7">
+      </key>
+      <key
+            commandId="org.eclipse.ui.window.activateEditor"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="F8">
+      </key>
+      <key
+            commandId="org.eclipse.ui.views.showView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="F9">
+           <parameter 
+            	id="org.eclipse.ui.views.showView.viewId"
+            	value="org.eclipse.ui.navigator.ProjectExplorer" />
+      </key>
+      <key
+            commandId="org.eclipse.ui.views.showView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="F10">
+           <parameter  id="org.eclipse.ui.views.showView.viewId"
+            	value="org.eclipse.ui.views.ContentOutline" />
+      </key>
+      <key
+            commandId="org.eclipse.ltk.ui.refactoring.commands.deleteResources"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="DEL">
+      </key>
+      
+      <key
+            commandId="org.eclipse.ui.edit.text.delete.line.to.beginning"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M2+BACKSPACE">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.delete.line.to.end"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M2+DEL">
+      </key>
+      <key
+            commandId="com.aptana.editor.commands.Format"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+F">
+      </key>
+      <key
+      		platform="win32"
+            commandId="org.eclipse.ui.edit.text.moveLineDown"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+ARROW_DOWN">
+      </key>
+      <key
+      		platform="cocoa"
+            commandId="org.eclipse.ui.edit.text.moveLineDown"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M4+ARROW_DOWN">
+      </key>
+      <key
+      		platform="win32"
+            commandId="org.eclipse.ui.edit.text.moveLineUp"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+ARROW_UP">
+      </key>
+      <key
+      		platform="cocoa"
+            commandId="org.eclipse.ui.edit.text.moveLineUp"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M4+ARROW_UP">
+      </key>
+      <key
+            commandId="com.pandora.ui.select.ruby.select_tag_content"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M3+ARROW_DOWN">
+      </key>
+      <key
+            commandId="com.pandora.ui.select.ruby.select_tag_pair_and_content"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+[">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.delete"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="Delete">
+      </key>
+      <key
+            commandId="com.pandora.ui.view.ruby.bigger"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+=">
+      </key>
+      <key
+            commandId="com.pandora.ui.view.ruby.bigger"
+            contextId="org.eclipse.ui.textEditorScope"
+            platform="cocoa"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2++">
+      </key>
+      <key
+            commandId="com.pandora.ui.view.ruby.smaller"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+-">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.text.smartEnter"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+Enter">
+      </key>
+      
+      <key
+            commandId="com.pandora.ui.edit.copyFilePath"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="Ctrl+Shift+C">
+      </key>
+      <key
+            commandId="com.pandora.emmet.eclipse.commands.remove_tag"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="Ctrl+Shift+T">
+      </key>
+      <key
+            commandId="org.eclipse.ui.file.newQuickMenu"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+N"
+            schemeId="hbuilder.accelerator" >
+      </key>
+      <key
+            commandId="com.pandora.ui.edit.ruby.html.unwrap"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+0"
+            schemeId="hbuilder.accelerator" >
+      </key>
+      <key
+            sequence="M1+M3+C"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.pandora.ui.toggleBlockSelectionMode"
+            schemeId="hbuilder.accelerator">
+            <parameter id="id" value="org.eclipse.ui.edit.text.toggleBlockSelectionMode" />
+      </key>
+      <key
+            sequence="M1+M2+R"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.pandora.ui.copy.duplicate_line"
+            schemeId="hbuilder.accelerator"/>
+      <key
+            sequence="M1+L"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.pandora.ui.select.selectLines"
+            schemeId="hbuilder.accelerator"/>
+      <key
+            commandId="com.pandora.ui.discuss"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            platform="win32"
+            sequence="M3+F1">
+      </key>
+      <key
+            commandId="com.pandora.ui.discuss"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            platform="cocoa"
+            sequence="M4+F">
+      </key>
+      <!--
+      <key
+            commandId="com.pandora.ui.asks.command"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="M3+F12">
+      </key>-->
+      <key
+            commandId="com.pandora.ui.webdevpPer.command"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+P">
+      </key>
+      <key
+            commandId="com.pandora.ui.realdevpPer.command"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+P">
+      </key>
+      <key
+            commandId="com.aptana.editor.js.commands.multiComment"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M2+/">
+      </key>
+      <!--key
+            commandId="com.pandora.ui.toggleShowWhitespaceCharacters"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M3+W">
+            <parameter id="id" value="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters" />
+      </key-->
+      <!--key
+            commandId="com.pandora.ui.toggleShowIndentGuide"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M3+I">
+            <parameter id="id" value="com.pandora.editor.ui.toggleShowIndentGuide" />
+      </key-->
+       <key
+            commandId="com.pandora.ui.toggleMarkOccurrences"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M2+M3+O">
+            <parameter id="id" value="com.aptana.editor.common.toggleMarkOccurrences" />
+      </key>
+      <key
+            commandId="com.pandora.ui.toggleMarkOccurrences"
+            contextId="org.eclipse.ui.textEditorScope"
+            platform="carbon"
+            schemeId="hbuilder.accelerator"
+            sequence="COMMAND+ALT+O">
+            <parameter id="id" value="com.aptana.editor.common.toggleMarkOccurrences" />
+      </key>
+       <key
+            commandId="org.eclipse.ui.edit.findPrevious"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="M2+F3">
+      </key>
+      <key
+            commandId="org.eclipse.ui.edit.findNext"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="hbuilder.accelerator"
+            sequence="F3">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <scheme   
+            id="sublime"
+            name="sublime"   
+            >   
+      </scheme>
+      <!--文件-->
+      <!--新建-->
+      <key
+            commandId="org.eclipse.ui.file.newQuickMenu"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+N"
+            schemeId="sublime" >
+      </key>
+      <!--打开本地文件-->
+      <key
+            commandId="org.eclipse.ui.edit.text.openLocalFile"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+O"
+            schemeId="sublime" >
+      </key>
+      <!--保存-->
+      <key
+            commandId="org.eclipse.ui.file.save"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+S"
+            schemeId="sublime" >
+      </key>
+      <!--另存为-->
+      <key
+            commandId="org.eclipse.ui.file.saveAs"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+M2+S"
+            schemeId="sublime" >
+      </key>
+      <!--新建窗体-->
+      <key
+            commandId="org.eclipse.ui.window.newWindow"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+M2+N"
+            schemeId="sublime" >
+      </key>
+      <!--关闭窗体
+      <key
+            commandId="org.eclipse.ui.window.newWindow"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+M2+N"
+            schemeId="sublime" >
+      </key>-->
+      <!--关闭页面-->
+      <key
+            commandId="org.eclipse.ui.file.close"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+W"
+            schemeId="sublime" >
+      </key>
+      <!--编辑-->
+      <!--撤销-->
+      <key
+            commandId="org.eclipse.ui.edit.undo"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            sequence="M1+Z"
+            schemeId="sublime" >
+      </key>
+      <!--重做-->
+      <key
+            commandId="org.eclipse.ui.edit.redo"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            sequence="M1+Y"
+            schemeId="sublime" >
+      </key>
+      
+      <!--复制-->
+      <key
+            commandId="org.eclipse.ui.edit.copy"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            sequence="M1+C"
+            schemeId="sublime" >
+      </key>
+      <!--剪切-->
+      <key
+            commandId="org.eclipse.ui.edit.cut"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            sequence="M1+X"
+            schemeId="sublime" >
+      </key>
+      <!--粘贴-->
+      <key
+            commandId="org.eclipse.ui.edit.paste"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            sequence="M1+V"
+            schemeId="sublime" >
+      </key>
+      <!--删除-->
+      <key
+            commandId="org.eclipse.ui.edit.delete"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="Delete"
+            schemeId="sublime" >
+      </key>
+      <!--删除-->
+      <key
+            commandId="org.eclipse.ui.edit.delete"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="Delete"
+            schemeId="sublime" >
+      </key>
+      <!--缩进-->
+      <key
+            commandId="com.pandora.ui.command.indent"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+]"
+            schemeId="sublime" >
+      </key>
+      <!--反缩进-->
+      <key
+            commandId="com.pandora.ui.command.unindent"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+["
+            schemeId="sublime" >
+      </key>
+      <!--向上移动行-->
+      <key
+            commandId="org.eclipse.ui.edit.text.moveLineUp"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+ARROW_UP"
+            schemeId="sublime" >
+      </key>
+      <!--向下移动行-->
+      <key
+            commandId="org.eclipse.ui.edit.text.moveLineDown"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+ARROW_DOWN"
+            schemeId="sublime" >
+      </key>
+      <!--重复插入当前行或者选区-->
+      <key
+            commandId="com.pandora.ui.copy.duplicate_line"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+D"
+            schemeId="sublime" >
+      </key>
+      <!--删除当前行-->
+      <key
+            commandId="org.eclipse.ui.edit.text.delete.line"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+K"
+            schemeId="sublime" >
+      </key>
+      <!--合并行-->
+      <key
+            commandId="org.eclipse.ui.edit.text.join.lines"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+J"
+            schemeId="sublime" >
+      </key>
+      <!--开启/关闭注释整行-->
+      <key
+            commandId="com.aptana.editor.commands.comment"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+/"
+            schemeId="sublime" >
+      </key>
+      <!--开启/关闭注释已选内容-->
+      <key
+            commandId="com.aptana.editor.js.commands.multiComment"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+/"
+            schemeId="sublime" >
+      </key>
+      <!--向上空行-->
+      <key
+            commandId="org.eclipse.ui.edit.text.smartEnterInverse"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+Enter"
+            schemeId="sublime" >
+      </key>
+      <!--向下空行-->
+      <key
+            commandId="org.eclipse.ui.edit.text.smartEnter"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+Enter"
+            schemeId="sublime" >
+      </key>
+      <!--删除后一词-->
+      <key
+            commandId="org.eclipse.ui.edit.text.deleteNextWord"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+DEL"
+            schemeId="sublime" >
+      </key>
+      <!--删除前一词-->
+      <key
+            commandId="org.eclipse.ui.edit.text.deletePreviousWord"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+BACKSPACE"
+            schemeId="sublime" >
+      </key>
+      <!--删除至行尾-->
+      <key
+            commandId="org.eclipse.ui.edit.text.delete.line.to.end"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+K M1+K"
+            schemeId="sublime" >
+      </key>
+      <!--删除至行首-->
+      <key
+            commandId="org.eclipse.ui.edit.text.delete.line.to.beginning"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+K M1+BACKSPACE"
+            schemeId="sublime" >
+      </key>
+      <!--插入结尾闭合标签-->
+      <key
+            commandId="com.pandora.ui.insert.ruby.html.insert_close_tag"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M2+."
+            schemeId="sublime" >
+      </key>
+      <!--选择子标签
+      <key
+            commandId="com.pandora.ui.select.ruby.select_tag_content"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+A"
+            schemeId="sublime" >
+      </key>
+      -->
+      <!--增加包围标签-->
+      <key
+            commandId="com.pandora.ui.select.ruby.select_tag_content"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M2+M3+W"
+            schemeId="sublime" >
+      </key>
+      <!--增加书签标签-->
+      <key
+            commandId="org.eclipse.ui.edit.addBookmark"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            sequence="M1+F2"
+            schemeId="sublime" >
+      </key>
+      <!--折叠代码-->
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.collapse"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+["
+            schemeId="sublime" >
+      </key>
+      <!--展开代码-->
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.expand"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+]"
+            schemeId="sublime" >
+      </key>
+      <!--全部展开代码-->
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.expand_all"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+K M1+J"
+            schemeId="sublime" >
+      </key>
+      <!--折叠到二级-->
+      <key
+            commandId="org.eclipse.ui.edit.text.folding.collapse_all"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+K M1+1"
+            schemeId="sublime" >
+      </key>
+      <!--全部大写-->
+      <key
+            commandId="org.eclipse.ui.edit.text.upperCase"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+K M1+U"
+            schemeId="sublime" >
+      </key>
+      <!--全部小写-->
+      <key
+            commandId="org.eclipse.ui.edit.text.lowerCase"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+K M1+L"
+            schemeId="sublime" >
+      </key>
+      <!--激活代码助手-->
+      <key
+            commandId="org.eclipse.ui.edit.text.contentAssist.proposals"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+Space"
+            schemeId="sublime" >
+      </key>
+      <!--行排序-->
+      <key
+            commandId="com.pandora.ui.edit.ruby.text.sort.sort_lines"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="F9"
+            schemeId="sublime" >
+      </key>
+      <!--行排序-->
+      <key
+            commandId="com.pandora.ui.edit.ruby.text.sort.sort_lines"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="F9"
+            schemeId="sublime" >
+      </key>
+      <!--内容辅助-->
+      <key
+            commandId="org.eclipse.ui.edit.text.contentAssist.proposals"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="Ctrl+Sapce"
+            schemeId="sublime" >
+      </key>
+      <!--改写切换-->
+      <key
+            commandId="org.eclipse.ui.edit.text.toggleOverwrite"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="INSERT"
+            schemeId="sublime" >
+      </key>
+      <!--行排序-->
+      <key
+            commandId="com.pandora.ui.edit.ruby.text.sort.sort_lines"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="F9"
+            schemeId="sublime" >
+      </key>
+      <!--选择-->
+      <!--全选-->
+      <key
+            commandId="org.eclipse.ui.edit.selectAll"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            sequence="M1+A"
+            schemeId="sublime" >
+      </key>
+      <!--选择行-->
+      <key
+            commandId="com.pandora.ui.select.selectLines"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+L"
+            schemeId="sublime" >
+      </key>
+      <!--选择选择光标所在词-->
+      <key
+            commandId="com.aptana.editor.commands.LinkedModelEditor"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+D"
+            schemeId="sublime" >
+      </key>
+      <!--选择成对内容-->
+      <key
+            commandId="com.pandora.ui.select.ruby.select_tag_pair_and_content"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+M"
+            schemeId="sublime" >
+      </key>
+      <!--选择当前节点-->
+      <key
+            commandId="com.pandora.emmet.eclipse.commands.match_pair_outward"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+A"
+            schemeId="sublime" >
+      </key>
+      <!--查找菜单-->
+      <!--查找-->
+      <key
+            commandId="org.eclipse.ui.edit.findReplace"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+F"
+            schemeId="sublime" >
+      </key>
+      <!--查找下一个-->
+      <key
+            commandId="org.eclipse.ui.edit.findNext"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="F3"
+            schemeId="sublime" >
+      </key>
+      <!--查找上一个-->
+      <key
+            commandId="org.eclipse.ui.edit.findPrevious"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M2+F3"
+            schemeId="sublime" >
+      </key>
+      <!--查找-->
+      <key
+            commandId="org.eclipse.ui.edit.findReplace"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+H"
+            schemeId="sublime" >
+      </key>
+      <!--快速查找下一个-->
+      <key
+            commandId="org.eclipse.ui.edit.findNext"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+F3"
+            schemeId="sublime" >
+      </key>
+      <!--文件中查找-->
+      <key
+            commandId="org.eclipse.search.ui.openSearchDialog"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+F"
+            schemeId="sublime" >
+      </key>
+      <!--跳转-->
+      <!--转到行-->
+      <key
+            commandId="org.eclipse.ui.edit.text.goto.line"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+G"
+            schemeId="sublime" >
+      </key>
+      <!--转到定义-->
+      <key
+            commandId="com.aptana.editor.js.openDeclaration"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="F12"
+            schemeId="sublime" >
+      </key>
+      <!--后退历史记录-->
+      <key
+            commandId="org.eclipse.ui.navigate.backwardHistory"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M3+-"
+            schemeId="sublime" >
+      </key>
+      <!--前进历史记录-->
+      <key
+            commandId="org.eclipse.ui.navigate.forwardHistory"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M2+M3+-"
+            schemeId="sublime" >
+      </key>
+      <!--下一个选项卡-->
+      <key
+            commandId="com.aptana.editor.NextEditorCommand"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+TAB"
+            schemeId="sublime" >
+      </key>
+       <!--上一个选项卡-->
+      <key
+            commandId="com.aptana.editor.PreviousEditorCommand"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+TAB"
+            schemeId="sublime" >
+      </key>
+      <!--下一个选项卡
+      <key
+            commandId="org.eclipse.ui.window.nextEditor"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+PAGE_DOWN"
+            schemeId="sublime" >
+      </key>-->
+       <!--下一个选项卡
+      <key
+            commandId="com.aptana.editor.PreviousEditorCommand"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+PAGE_UP"
+            schemeId="sublime" >
+      </key>-->
+      <!--栈中的下一个文件-->
+      <key
+            commandId="org.eclipse.ui.window.previousEditor"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+PAGE_UP"
+            schemeId="sublime" >
+      </key>
+      <!--栈中的上一个文件-->
+      <key
+            commandId="org.eclipse.ui.window.nextEditor"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+PAGE_DOWN"
+            schemeId="sublime" >
+      </key>
+      <!--匹配的引号-->
+      <key
+            commandId="com.aptana.editor.common.gotoQuotationMmarks"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M"
+            schemeId="sublime" >
+      </key>
+  	  <!--工具-->
+      <!--文件中查找-->
+      <key
+            commandId="org.eclipse.ui.window.quickAccess"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+M2+P"
+            schemeId="sublime" >
+      </key>
+      <!--清理构建-->
+      <key
+            commandId="org.eclipse.ui.window.quickAccess"
+            contextId="org.eclipse.ui.textEditorScope"
+            sequence="M1+B"
+            schemeId="sublime" >
+      </key>
+   </extension>
+    <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.pandora.ui.ProjectExplorerImageView"></startup>
+      <startup
+            class="com.pandora.ui.action.StartTips"></startup>
+   </extension>
+   
+   <!-- M1:Ctrl;M2: Shift;M3:Alt -->
+    <extension
+          point="org.eclipse.ui.menus">
+       <menuContribution
+             locationURI="menu:file?after=rename">
+          <command
+                commandId="org.eclipse.ui.edit.rename"
+                tooltip="重命名当前选中的资源"
+                style="push">
+          </command>
+          <command
+                commandId="org.eclipse.ltk.ui.refactoring.commands.deleteResources"
+                label="删除(&amp;D)"
+                style="push"
+                tooltip="删除资源管理器中当前选中的资源">
+          </command>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:file?after=close">
+          <command
+                commandId="org.eclipse.ui.file.closeOthers"
+                label="关闭其他文件(&amp;K)"
+                style="push">
+          </command>
+       </menuContribution>
+       
+       <menuContribution
+            locationURI="menu:file?after=restart.ext">
+         <command
+               commandId="org.eclipse.ui.file.restartWorkbench"
+               id="org.eclipse.ui.file.restartWorkbench"
+               label="重新启动(&amp;T)"
+               style="push">
+         </command>
+      </menuContribution>
+       <!--EDIT--> 
+       <menuContribution
+             locationURI="menu:edit2?before=org.eclipse.ui.edit.text.showInformation">
+          <command
+                commandId="org.eclipse.ui.edit.text.contentAssist.proposals"
+                label="激活代码助手(&amp;A)"
+                style="push">
+          </command>
+       </menuContribution>
+     
+       <menuContribution
+             locationURI="menu:edit2?after=copy.ext">
+          <command
+                commandId="com.pandora.ui.edit.copyFilePath"
+                label="复制文件路径(&amp;T)"
+                style="push">
+          </command>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:edit2?after=opt.separator">
+           <menu
+                label="删除(&amp;D)">
+		         <command
+                 commandId="org.eclipse.ui.edit.text.delete.line"
+                 label="删除当前行(&amp;L)"
+                 style="push">
+		         </command>
+		         <command
+                 commandId="org.eclipse.ui.edit.text.deletePreviousWord"
+                 label="删除前一词(&amp;B)"
+                 style="push">
+		         </command>
+		         <command
+                 commandId="org.eclipse.ui.edit.text.deleteNextWord"
+                 label="删除后一词(&amp;D)"
+                 style="push">
+		         </command>
+		         <command
+                 commandId="org.eclipse.ui.edit.text.delete.line.to.beginning"
+                 label="删除至行首(&amp;H)"
+                 style="push">
+		         </command>
+		         <command
+                 commandId="org.eclipse.ui.edit.text.delete.line.to.end"
+                 label="删除至行尾(&amp;E)"
+                 style="push">
+		         </command>
+	           <command
+	                 commandId="com.pandora.emmet.eclipse.commands.remove_tag"
+	                 label="删除当前标签(&amp;T)"
+	                 style="push">
+	           </command>
+          </menu>
+          <command
+                commandId="com.pandora.refactor.ui.rename.command"
+                label="安全重命名对象(&amp;N)"
+                style="push">
+          </command>
+           <separator
+                name="com.pandora.ui.separator23"
+                visible="true">
+          </separator>
+          <command
+                commandId="org.eclipse.ui.edit.text.join.lines"
+                style="push">
+          </command>
+          <command
+                commandId="com.aptana.editor.commands.Format"
+                label="整理代码格式(&amp;F)"
+                style="push">
+          </command>
+          
+          
+          <command
+                commandId="org.eclipse.ui.edit.text.moveLineUp"
+                label="向上移动行(&amp;I)"
+                style="push">
+          </command>
+          <command
+                commandId="org.eclipse.ui.edit.text.moveLineDown"
+                label="向下移动行(&amp;J)"
+                style="push">
+          </command>
+          <separator
+                name="com.pandora.ui.separator1111"
+                visible="true">
+          </separator>
+          <menu
+                label="注释(&amp;/)">
+             <command
+                   commandId="com.aptana.editor.commands.comment"
+                   label="开启/关闭注释整行"
+                   style="push">
+             </command>
+             <command
+                   commandId="com.aptana.editor.js.commands.multiComment"
+                   label="开启/关闭注释已选内容"
+                   style="push">
+             </command>
+             
+             <command
+                   commandId="com.aptana.editor.js.generatedoc"
+                   label="生成jsdoc注释"
+                   style="push">
+                   <visibleWhen
+                         checkEnabled="true">
+						<iterate ifEmpty="false">
+							<adapt type="org.eclipse.jface.text.ITextSelection">
+								<test forcePluginActivation="true"
+								property="com.pandora.ui.edit.text.contentAssist.contextInformation.enable" value="true"></test>
+							</adapt>
+						</iterate>
+                   </visibleWhen>
+             </command>
+             
+             <command
+                   commandId="com.pandora.emmet.eclipse.commands.toggle_comment"
+                   label="注释当前标签(&amp;T)"
+                   style="push">
+             </command>
+             <command
+                   commandId="com.pandora.ui.edit.ruby.source.comment_banner">
+             </command>
+             <command
+                   commandId="com.pandora.ui.edit.ruby.source.comment_header">
+             </command>
+             <separator
+                   name="com.pandora.ui.comment" visible="true">
+             </separator>
+             <command
+                   commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie">
+             </command>
+             <command
+                   commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_6_and_below">
+             </command>
+             <command
+                   commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_6">
+             </command>
+             <command
+                   commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_7_and_above">
+             </command>
+             <command
+                   commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_8_and_above">
+             </command>
+             <command
+                   commandId="com.pandora.ui.edit.ruby.html.condition_comment.ie_9_and_above">
+             </command>
+          </menu>
+          <separator
+                name="com.pandora.ui.separator24"
+                visible="true">
+          </separator>
+          <menu id="com.pandora.ui.edit.surround"
+                label="包围(&amp;W)">
+             <separator
+                      name="contents">
+             </separator>
+             <command
+                commandId="com.pandora.ui.edit.ruby.html.wrap.wrap_selection_in_tag_pair">
+          	 </command>
+             <command
+                commandId="com.pandora.ui.edit.ruby.html.wrap.wrap_lines_in_tag_pairs">
+          	 </command>
+          </menu>
+          <command
+                commandId="com.pandora.ui.edit.ruby.html.unwrap"
+                style="push">
+          </command>
+          <separator
+                name="com.pandora.ui.separator25"
+                visible="true">
+          </separator>
+          <menu
+                label="排序(&amp;S)">
+             <command
+                commandId="com.pandora.ui.edit.ruby.text.sort.sort_lines">
+          	 </command>
+          	 <command
+                commandId="com.pandora.ui.edit.ruby.text.sort.sort_and_remove_duplicates">
+          	 </command>
+          	 <command
+                commandId="com.pandora.ui.edit.ruby.text.sort.randomize_lines">
+          	 </command>
+          </menu>
+          <separator
+                name="com.pandora.ui.separator26"
+                visible="true">
+          </separator>
+          <command
+                commandId="org.eclipse.ui.edit.text.showInformation"
+                style="push" label="显示语法信息栏(&amp;O)">
+          </command>
+          <command
+                commandId="org.eclipse.ui.edit.text.hippieCompletion"
+                style="push" label="文字补全(&amp;H)">
+          </command>
+          <command
+                commandId="org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals"
+                style="push" label="快速修正(&amp;L)">
+          </command>
+       </menuContribution>
+       <!--INSERT-->
+       <menuContribution
+             locationURI="menu:insert?after=line.ext">
+              <command
+	              	commandId="org.eclipse.ui.edit.text.smartEnter"
+	                label="向下插入空行(&amp;D)"
+	                style="push">
+	          </command>
+	          <command
+	                commandId="org.eclipse.ui.edit.text.smartEnterInverse"
+	                label="向上插入空行(&amp;U)"
+	                style="push">
+	          </command>
+	          <command
+	                commandId="com.pandora.ui.copy.duplicate_line"
+	                label="重复插入当前行或选中区域(&amp;R)"
+	                style="push">
+	          </command>
+	          <!--command
+	                commandId="org.eclipse.ui.edit.text.copyLineUp"
+	                label="向上复制行(&amp;A)"
+	                style="push">
+	          </command-->
+	          <separator
+	                name="com.pandora.ui.additions.separator15646"
+	                visible="true">
+          	  </separator>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:transfer?after=upper.ext">
+          <command
+                commandId="org.eclipse.ui.edit.text.upperCase"
+                label="全部大写(&amp;X)"
+                style="push">
+          </command>
+          <command
+                commandId="org.eclipse.ui.edit.text.lowerCase"
+                label="全部小写(&amp;Y)"
+                style="push">
+          </command>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:search1?after=search1Start">
+          <command
+                commandId="org.eclipse.ui.edit.findReplace"
+                label="搜索条(&amp;F)"
+                style="push">
+          </command>
+          <separator
+                name="openSearchDialog">
+          </separator>
+          <!--
+          <command
+                commandId="org.eclipse.search.ui.openSearchDialog"
+                label="高级查找(&amp;A)"
+                style="push">
+          </command>
+         
+          <command
+                commandId="org.eclipse.ui.edit.findReplace"
+                label="查找替换(&amp;R)"
+                style="push">
+          </command>
+           -->
+          <command
+                commandId="org.eclipse.ui.navigate.openResource"
+                label="查找文件(&amp;T)"
+                style="push">
+          </command>
+          <command
+                commandId="org.eclipse.ui.edit.findNext"
+                label="搜索下一个(&amp;N)"
+                style="push">
+          </command>
+          <command
+                commandId="org.eclipse.ui.edit.findPrevious"
+                label="搜索上一个(&amp;P)"
+                style="push">
+          </command>
+          
+          <menu id="textSeach"
+                label="文本搜索(&amp;X)">
+                <separator
+                      name="group1">
+                </separator>
+                 <separator
+                      name="group2">
+                </separator>
+                 <separator
+                      name="group3">
+                </separator>
+          </menu>
+          
+          <separator
+                name="com.pandora.ui.search.separator1"
+                visible="true">
+          </separator>
+          <command
+                commandId="org.eclipse.compare.compareWithOther"
+                label="多文件比较(&amp;C)"
+                style="push">
+          </command>
+          <command
+                commandId="com.pandora.ui.showLocalHistory"
+                label="历史版本比较(&amp;H)"
+                style="push">
+          </command>
+       </menuContribution>
+       	<!--SELECT-->
+      	<menuContribution
+            locationURI="menu:select?before=selectStart">
+            <command label="%command.label.selectAll"  commandId="org.eclipse.ui.edit.selectAll"></command>
+            <separator
+                  name="word">
+            </separator>
+          	<command label="%command.label.select.wordPrevious"  commandId="org.eclipse.ui.edit.text.select.wordPrevious"></command>
+            <command label="%command.label.select.wordNext"  commandId="org.eclipse.ui.edit.text.select.wordNext"></command>
+            <command label="%com.aptana.editor.commands.LinkedModelEditor"  commandId="com.aptana.editor.commands.LinkedModelEditor"></command>
+            <command
+                commandId="com.pandora.ui.select.selectLines"
+                label="选择当前行(&amp;E)"
+                style="push">
+            </command>
+            <command label="%command.label.select_tag_pair_and_content" commandId="com.pandora.ui.select.ruby.select_tag_pair_and_content"></command>
+            <separator
+                name="com.pandora.ui.separatorselect01"
+                visible="true">
+            </separator>
+            <command label="%command.label.match_pair_outward" commandId="com.pandora.emmet.eclipse.commands.match_pair_outward"></command>
+            <command label="%command.label.match_pair_inward" commandId="com.pandora.emmet.eclipse.commands.match_pair_inward"></command>
+            <command
+                  commandId="com.pandora.emmet.eclipse.commands.select_previous_item"
+                  icon="icons/previous_item.png"
+                  label="%command.label.select_previous_item">
+            </command>
+            <command
+                  commandId="com.pandora.emmet.eclipse.commands.select_next_item"
+                  icon="icons/next_item.png"
+                  label="%command.label.select_next_item"></command>
+            <command label="%command.label.select_tag_content" commandId="com.pandora.ui.select.ruby.select_tag_content"></command>
+            <separator
+                name="com.pandora.ui.separatorselect02"
+                visible="true">
+            </separator>
+            <command commandId="com.pandora.ui.toggleBlockSelectionMode">
+          		<parameter name="id" value="org.eclipse.ui.edit.text.toggleBlockSelectionMode" />
+            </command>
+      	</menuContribution>
+         <!--GOTO-->
+          <menuContribution
+            locationURI="menu:goto?before=gotoStart">
+            <menu
+                label="%menu.label.text">
+              <command label="%command.label.nextEditorCommand"
+              commandId="com.aptana.editor.NextEditorCommand">
+              </command>
+              <command label="%command.label.previousEditorCommand"
+                  commandId="com.aptana.editor.PreviousEditorCommand">
+              </command>
+              <command label="%command.label.wordPrevious"
+          		commandId="org.eclipse.ui.edit.text.goto.wordPrevious">
+	          </command>
+	          <command label="%command.label.wordNext"
+	          		commandId="org.eclipse.ui.edit.text.goto.wordNext">
+	          </command>
+	          <command label="%command.label.lineStart"
+	          		commandId="org.eclipse.ui.edit.text.goto.lineStart">
+	          </command>
+	          <command label="%command.label.lineEnd"
+	          		commandId="org.eclipse.ui.edit.text.goto.lineEnd">
+	          </command>
+	          <command label="%command.label.pageUp"
+	          		commandId="org.eclipse.ui.edit.text.goto.pageUp">
+	          </command>
+	          <command label="%command.label.pageDown"
+	          		commandId="org.eclipse.ui.edit.text.goto.pageDown">
+	          </command>
+	          <command label="%command.label.textStart"
+	          		commandId="org.eclipse.ui.edit.text.goto.textStart">
+	          </command>
+	          <command label="%command.label.textEnd"
+	          		commandId="org.eclipse.ui.edit.text.goto.textEnd">
+	          </command>
+          </menu>
+	  </menuContribution>
+	  <menuContribution
+            locationURI="menu:goto?before=editor">
+        <separator
+              name="web"  visible="true">
+        </separator>
+        <command label="%command.label.gotoMatchingBracket"
+          	commandId="com.aptana.editor.common.gotoMatchingBracket">
+        </command>
+        <command label="%command.label.gotoMatchingBracket2"
+              commandId="com.aptana.editor.common.gotoQuotationMmarks">
+        </command>
+        <!--command label="%command.label.matching_pair"
+              commandId="com.pandora.emmet.eclipse.commands.matching_pair">
+        </command-->
+         <separator
+              name="point"  visible="true">
+        </separator>
+        <command label="%command.label.prev_edit_point"
+              commandId="com.pandora.emmet.eclipse.commands.prev_edit_point">
+        </command>
+        <command label="%command.label.next_edit_point"
+              commandId="com.pandora.emmet.eclipse.commands.next_edit_point">
+        </command>
+          <command label="%command.label.previous"
+          		commandId="org.eclipse.ui.navigate.previous">
+          </command>
+          <command label="%command.label.next"
+          		commandId="org.eclipse.ui.navigate.next">
+          </command>
+          <separator
+                  name="scoll"  visible="true">
+          </separator>
+          <!--command label="%command.label.lineUp"
+          		commandId="org.eclipse.ui.edit.text.scroll.lineUp">
+          </command>
+          <command label="%command.label.lineDown"
+          		commandId="org.eclipse.ui.edit.text.scroll.lineDown">
+          </command-->
+          <separator
+                  name="bookmark"  visible="true">
+          </separator>
+          <command label="%command.label.bookmark"
+          		commandId="com.aptana.editor.commands.bookmark">
+          </command>
+          <separator
+                  name="folding"  visible="true">
+          </separator>
+          <menu
+                label="%menu.label.fold">
+                <command
+                      commandId="org.eclipse.ui.edit.text.folding.collapse" label="%command.label.collapse">
+                </command>
+                <command
+                      commandId="org.eclipse.ui.edit.text.folding.expand" label="%command.label.expand">
+                </command>
+                <command
+                      commandId="org.eclipse.ui.edit.text.folding.collapse_all" label="%command.label.collapse_all">
+                </command>
+                <command
+                      commandId="org.eclipse.ui.edit.text.folding.expand_all" label="%command.label.expand_all">
+                </command>
+          </menu>
+          <separator
+                  name="source"  visible="true">
+          </separator>
+          <command label="%command.label.openDeclaration"
+          		commandId="com.aptana.editor.js.openDeclaration">
+          </command>
+          <command label="%command.label.line"
+          		commandId="org.eclipse.ui.edit.text.goto.line">
+          </command>
+          <separator
+                  name="navigator" visible="true">
+          </separator>
+          
+          <command label="快速跳转选项卡(&amp;E)"
+          		commandId="org.eclipse.ui.window.openEditorDropDown">
+          </command>
+          <command label="%command.label.nextView"
+          		commandId="org.eclipse.ui.window.nextView">
+          </command>
+          <command label="%command.label.activateEditor"
+          		commandId="org.eclipse.ui.window.activateEditor">
+          </command>
+          <command label="%command.label.showView.projectExplorer"
+          		commandId="org.eclipse.ui.views.showView">
+ 			<parameter 
+            	name="org.eclipse.ui.views.showView.viewId"
+            	value="org.eclipse.ui.navigator.ProjectExplorer" />
+          </command>
+          <command label="%command.label.showView.outline"
+          		commandId="org.eclipse.ui.views.showView">
+ 			<parameter 
+      			name="org.eclipse.ui.views.showView.viewId"
+            	value="org.eclipse.ui.views.ContentOutline" />
+          </command>
+          <separator
+                  name="quick" visible="true">
+          </separator>
+          <command label="%command.label.quickAccess"
+              commandId="org.eclipse.ui.window.quickAccess">
+          </command>
+          <command label="%command.label.openResource"
+              commandId="org.eclipse.ui.navigate.openResource">
+          </command>
+      </menuContribution>
+      <!--View-->
+      <menuContribution allPopups="false" 
+      		locationURI="menu:window?before=windowStart">
+          <!--command label="%command.label.maximizePart"
+              commandId="com.pandora.ui.action.FullScreenHandler">
+          </command-->
+           <command
+               commandId="com.pandora.ui.lineNumberToggle"
+               label="%command.label.lineNumberToggle"
+               style="toggle">
+              <parameter name="id" value="org.eclipse.ui.editors.lineNumberToggle" />
+          </command>
+      	   <command label="%command.label.linkWithEditor"
+              commandId="com.pandora.ui.linkWithEditor" style="toggle">
+          </command>
+      	  <command
+               commandId="com.pandora.ui.toggleMarkOccurrences"
+               label="自动高亮相同字符(&amp;H)"
+               style="toggle">
+              <parameter name="id" value="com.aptana.editor.common.toggleMarkOccurrences" />
+          </command>
+          
+          <command
+              commandId="com.pandora.ui.toggleShowIndentGuide"
+              label="显示缩进对齐线(&amp;I)"
+              style="toggle">
+              <parameter name="id" value="com.pandora.editor.ui.toggleShowIndentGuide" />
+          </command>
+          
+      	  <command
+              commandId="com.pandora.ui.toggleShowWhitespaceCharacters" style="toggle">
+               <parameter name="id" value="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters" />
+          </command>
+      	  
+      	  <command label="%command.label.toggleWordWrapCommand"
+              commandId="com.aptana.view.toggleWordWrapCommand" style="toggle">
+          </command>
+          <separator
+                name="toggleEnd" visible="true">
+          </separator>
+          <command label="%command.label.bigger"
+              commandId="com.pandora.ui.view.ruby.bigger">
+          </command>
+          <command label="%command.label.smaller"
+              commandId="com.pandora.ui.view.ruby.smaller">
+          </command>
+      </menuContribution>
+      <!--Tool-->
+      <menuContribution allPopups="false" 
+      		locationURI="menu:tool?before=toolStart">
+      	  <command label="%command.label.window.preferences"
+                commandId="org.eclipse.ui.window.preferences">
+          </command>
+          <command label="视觉主题设置(&amp;T)"
+                commandId="com.pandora.ui.action.ThemeHandler">
+          </command>
+          <command
+                  commandId="com.pandora.precompile.settings.command">
+          </command>
+          <command
+                commandId="com.pandora.ui.command.switch"
+                label="变更默认代码存放目录(&amp;W)"
+                style="push">
+          </command>
+          <command label="开启启动速度优化服务(&amp;K)"
+                commandId="com.pandora.ui.tool.schedule">
+                <visibleWhen
+                      checkEnabled="true">
+                </visibleWhen>
+          </command>
+          <separator
+                name="com.pandora.ui.preferences.separator1"
+                visible="true">
+          </separator>
+          <!--command
+                commandId="com.pandora.ui.command.validation">
+          </command-->
+          <command
+                commandId="com.aptana.editor.common.validator">
+          </command>
+          <command
+                commandId="com.pandora.ui.command.importFramework">
+          </command>
+          <command label="显示语法信息栏(&amp;O)"
+                commandId="org.eclipse.ui.edit.text.showInformation">
+          </command>
+          <command label="%command.label.wordcount"
+                commandId="com.pandora.ui.tool.ruby.wordcount">
+          </command>
+          <!--XXX: 暂时屏蔽GIT-->
+          <!--command label="%command.label.installbundle"
+                commandId="com.pandora.ui.tool.ruby.installbundle">
+          </command-->
+      </menuContribution>
+      <!--Help-->
+      <!--
+      <menuContribution allPopups="false" 
+      		locationURI="menu:help?before=helpSearch">
+      	  <command label="%command.label.help.preferences"
+                commandId="com.pandora.ui.help.tipsediter">
+          </command>
+      </menuContribution>
+      -->
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:help?after=org.eclipse.equinox.p2.ui.sdk.update">
+         <command
+               commandId="com.pandora.rcp.upgrade.handler.CheckUpdate"
+               style="push">
+         </command>
+         <command
+               commandId="com.pandora.ui.viewlog"
+               label="查看更新日志(&amp;N)"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:help?before=dynamicHelp">
+         <command
+               commandId="com.pandora.ui.getstart"
+               label="HBuilder入门(&amp;G)"
+               style="push">
+         </command>
+         <command
+               commandId="com.pandora.ui.docs.command"
+               label="文档中心(&amp;D)"
+               style="push">
+         </command>
+          <command
+               commandId="com.pandora.ui.tipsedit"
+               label="Tips技巧(&amp;T)"
+               style="push">
+         </command>
+          <command
+               commandId="org.eclipse.ui.views.showView"
+               label="快捷键列表(&amp;K)...">
+               <parameter
+                     name="org.eclipse.ui.views.showView.viewId"
+                     value="com.pandora.ui.views.Bindings">
+               </parameter>
+         </command>
+         <menu
+               label="Eclipse帮助(&amp;E)">
+                 <command
+		               commandId="org.eclipse.ui.help.helpSearch"
+		               label="搜索(&amp;E)"
+		               style="push" >
+               
+        		 </command>
+        		  <command
+		               commandId="org.eclipse.ui.help.tipsAndTricksAction"
+		               label="提示与技巧(&amp;T)"
+		               style="push">
+               
+        		 </command>
+        		 <command
+		               commandId="org.eclipse.ui.cheatsheets.actions.CheatSheetHelpMenuAction"
+		               label="备忘录(&amp;C)"
+		               style="push">
+               
+        		 </command>
+         </menu>
+          <separator
+               name="config" visible="true">
+          </separator>
+         <command
+	               commandId="com.pandora.ui.asks.command"
+	               label="问答互助(&amp;A)"
+	               style="push">
+	         </command>
+	     <command
+               commandId="com.pandora.ui.discuss.command"
+               label="反馈BUG(&amp;F)"
+               style="push">
+         </command>
+	     <command
+               commandId="com.pandora.ui.feedback.command"
+               label="反馈与建议(&amp;S)"
+               style="push">
+         </command>
+         <command
+               commandId="com.pandora.ui.event.command"
+               label="活动(&amp;E)"
+               style="push">
+         </command>
+         <!--command
+               commandId="com.pandora.ui.onlinehelp"
+               label="在线帮助(&amp;H)"
+               style="push">
+         </command-->
+      </menuContribution>
+       <menuContribution
+            allPopups="false"
+            locationURI="menu:help?before=about">
+              <command
+               commandId="com.pandora.ui.userInfo.command"
+               label="我的账户(&amp;I)"
+               style="push">
+         </command>
+       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:help?before=com.aptana.ui.command.diagnostic">
+         <command
+               commandId="com.pandora.ui.revertworkspace"
+               label="还原配置(&amp;R)"
+               style="push">
+         </command>
+      </menuContribution>
+      
+      
+      <!--
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:help?before=com.pandora.rcp.upgrade.handler.CheckUpdate">
+         <command
+               commandId="com.pandora.ui.eclipsehelp"
+               label="在线帮助"
+               style="push">
+         </command>
+      </menuContribution>
+      -->
+    </extension>
+    <!--
+    <extension
+          point="org.eclipse.ui.menus">
+          <menuContribution
+            allPopups="true"
+            locationURI="popup:org.eclipse.ui.popup.any?after=common.new.menu">
+	         <command
+	               commandId="com.pandora.ui.viewlog"
+	               label="打开项目(&amp;O)"
+	               style="push">
+	         </command>
+      </menuContribution>
+    </extension>
+    -->
+    <extension
+          point="org.eclipse.ui.menus">
+       <menuContribution
+             allPopups="false"
+             locationURI="toolbar:org.eclipse.ui.main.toolbar?before=additions">
+       	<toolbar
+               id="com.pandora.ui.toolbar.file">
+             <command icon="icons/enable/save.png" disabledIcon="icons/disable/save.png"
+                   commandId="org.eclipse.ui.file.save">
+             </command>
+             <command icon="/icons/enable/saveall.png" disabledIcon="/icons/disable/saveall.png"
+                   commandId="org.eclipse.ui.file.saveAll">
+             </command>
+             <command
+                   commandId="org.eclipse.ui.file.closeAll"
+                   disabledIcon="/icons/disable/closeall.png"
+                   icon="/icons/enable/closeall.png">
+             </command>
+             <command icon="/icons/enable/undo.png" disabledIcon="/icons/disable/undo.png"
+                   commandId="org.eclipse.ui.edit.undo">
+             </command>
+             <command icon="/icons/enable/redo.png" disabledIcon="/icons/disable/redo.png"
+                   commandId="org.eclipse.ui.edit.redo">
+             </command>
+             <command icon="/icons/enable/comment.png" disabledIcon="/icons/disable/comment.png"
+             	   label="开启/关闭注释整行"
+                   commandId="com.aptana.editor.commands.comment">
+             </command>
+       	 </toolbar>
+       	 <!--
+         <toolbar
+               id="com.pandora.ui.toolbar.select">
+             <command icon="/icons/enable/blockselection.png" disabledIcon="/icons/disable/blockselection.png"
+	               commandId="com.pandora.ui.toggleBlockSelectionMode" style="toggle">
+	               <parameter name="id" value="org.eclipse.ui.edit.text.toggleBlockSelectionMode" />
+             </command>
+             <command icon="/icons/enable/match_pair_inward.png" disabledIcon="/icons/disable/match_pair_inward.png"
+                   commandId="com.pandora.emmet.eclipse.commands.match_pair_inward">
+             </command>
+             <command icon="/icons/enable/match_pair_outward.png" disabledIcon="/icons/disable/match_pair_outward.png"
+                   commandId="com.pandora.emmet.eclipse.commands.match_pair_outward">
+             </command>
+             <command icon="/icons/enable/select_previous_item.png" disabledIcon="/icons/disable/select_previous_item.png"
+                   commandId="com.pandora.emmet.eclipse.commands.select_previous_item">
+             </command>
+             <command icon="/icons/enable/select_next_item.png" disabledIcon="/icons/disable/select_next_item.png"
+                   commandId="com.pandora.emmet.eclipse.commands.select_next_item">
+             </command>
+         </toolbar>-->
+       	<toolbar
+              id="com.pandora.ui.toolbar.goto">
+             <command icon="/icons/enable/bookmark.png" disabledIcon="/icons/disable/bookmark.png"
+             	   label="%command.label.bookmark"
+                   commandId="com.aptana.editor.commands.bookmark">
+             </command>
+             <command icon="/icons/enable/previous_scoll.png" disabledIcon="/icons/disable/previous_scoll.png"
+             	   label="%command.label.previous"
+                   commandId="org.eclipse.ui.navigate.previous">
+             </command>
+             <command icon="/icons/enable/next_scoll.png" disabledIcon="/icons/disable/next_scoll.png"
+             	   label="%command.label.next"
+                   commandId="org.eclipse.ui.navigate.next">
+             </command>
+             <command icon="/icons/enable/prev_edit_point.png" disabledIcon="/icons/disable/prev_edit_point.png"
+                   commandId="com.pandora.emmet.eclipse.commands.prev_edit_point">
+             </command>
+             <command icon="/icons/enable/next_edit_point.png" disabledIcon="/icons/disable/next_edit_point.png"
+                   commandId="com.pandora.emmet.eclipse.commands.next_edit_point">
+             </command>
+             <command icon="/icons/enable/backwardHistory.png" disabledIcon="/icons/disable/backwardHistory.png"
+                   commandId="org.eclipse.ui.navigate.backwardHistory">
+             </command>
+             <command icon="/icons/enable/forwardHistory.png" disabledIcon="/icons/disable/forwardHistory.png"
+                   commandId="org.eclipse.ui.navigate.forwardHistory">
+             </command>
+         </toolbar>
+         <toolbar
+              id="com.pandora.ui.toolbar.view">
+             <!--
+             <command
+                   commandId="com.pandora.ui.toggleMarkOccurrences"
+                   disabledIcon="/icons/disable/markOccurrences.png"
+                   icon="/icons/enable/markOccurrences.png"
+                   style="toggle">
+                   <parameter name="id" value="com.aptana.editor.common.toggleMarkOccurrences" />
+             </command>
+             -->
+             <!--
+             <command
+                   commandId="com.pandora.ui.toggleShowIndentGuide"
+                   disabledIcon="/icons/disable/indentGuide.png"
+                   icon="/icons/enable/indentGuide.png"
+                   style="toggle">
+                   <parameter name="id" value="com.pandora.editor.ui.toggleShowIndentGuide" />
+             </command>
+             
+             <command
+                   commandId="com.pandora.ui.toggleShowWhitespaceCharacters"
+                   disabledIcon="/icons/disable/showWhitespace.png"
+                   icon="/icons/enable/showWhitespace.png"
+                   style="toggle">
+                   <parameter name="id" value="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters" />
+             </command>
+             -->
+             
+             <command icon="/icons/enable/bigger.png" disabledIcon="/icons/disable/bigger.png"
+                   commandId="com.pandora.ui.view.ruby.bigger">
+             </command>
+             <command icon="/icons/enable/smaller.png" disabledIcon="/icons/disable/smaller.png"
+                   commandId="com.pandora.ui.view.ruby.smaller">
+             </command>
+         </toolbar>
+         <toolbar
+              id="com.pandora.ui.toolbar.run">
+              <separator
+                    name="device">
+              </separator>
+              <separator
+                    name="browser">
+              </separator>
+	      </toolbar>
+       	  <toolbar
+          		id="com.pandora.ui.toolbar.contentassistant">
+		        <command  icon="/icons/enable/contentassistant.png" disabledIcon="/icons/disable/contentassistant.png"
+                	commandId="org.eclipse.ui.edit.text.showInformation"
+                	label="显示语法信息栏(&amp;S)"
+                	style="push">
+          		</command>
+          		<!-- ask问题通知
+          		<dynamic
+                  id="com.pandora.ui.notice" class="com.pandora.ui.NoticeToolBar">
+          		</dynamic>
+          		-->
+          </toolbar>
+       </menuContribution>
+    </extension>
+    <extension
+          point="org.eclipse.ui.commands">
+       <command
+             categoryId="org.eclipse.ui.category.edit"
+             defaultHandler="com.pandora.ui.action.IndentHandler"
+             id="com.pandora.ui.command.indent"
+             name="%command.name.indent">
+       </command>
+       <command
+             categoryId="org.eclipse.ui.category.edit"
+             defaultHandler="com.pandora.ui.action.UnIndentHandler"
+             id="com.pandora.ui.command.unindent"
+             name="%command.name.unindent">
+       </command>
+       <command
+       		 categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.edit.striptag"
+             name="%command.name.striptag">
+       </command>
+       <command
+             categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.insert.lineNum"
+             name="%command.name.lineNum">
+       </command>
+       <command
+             categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.insert.datetime"
+             name="%command.name.datetime">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.transfer.uppercase"
+             name="%command.name.uppercase">
+       </command>
+       <command
+             categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.transfer.lowercase"
+             name="%command.name.lowercase">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"		 
+             id="com.pandora.ui.transfer.unicode"
+             name="%command.name.unicode">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.transfer.ascii"
+             name="%command.name.ascii">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.transfer.base64"
+             name="%command.name.base64">
+       </command>
+       <command
+             id="com.pandora.ui.transfer.encode"
+             name="%command.name.encode">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.transfer.decode"
+             name="%command.name.decode">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             defaultHandler="com.pandora.ui.action.CompareHistoryAction"
+             id="com.pandora.ui.showLocalHistory"
+             name="历史版本比较">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.copy.duplicate_line"
+             name="重复插入当前行或选中区域(&amp;R)">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             id="com.pandora.ui.select.selectLines"
+             name="选择当前行(&amp;S)">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             defaultHandler="com.pandora.ui.action.CopyFilePathHandler"
+             id="com.pandora.ui.edit.copyFilePath"
+             name="复制文件路径">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             defaultHandler="com.pandora.ui.action.DiscussHandler"
+             id="com.pandora.ui.discuss"
+             name="吐槽">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             defaultHandler="com.pandora.ui.command.ViewLogHandler"
+             id="com.pandora.ui.viewlog"
+             name="浏览更新日志">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             defaultHandler="com.pandora.ui.command.TipsHandler"
+             id="com.pandora.ui.tipsedit"
+             name="Tips技巧">
+       </command>
+       <command
+			 categoryId="com.aptana.ui.category"
+             defaultHandler="com.pandora.ui.command.GetStartHandler"
+             id="com.pandora.ui.getstart"
+             name="HBuilder入门">
+       </command>
+       <!--command
+			 categoryId="com.aptana.ui.category"
+             defaultHandler="com.pandora.ui.command.OnlineHelp"
+             id="com.pandora.ui.onlinehelp"
+             name="在线帮助">
+       </command-->
+        <command
+			 categoryId="com.aptana.ui.category"
+             defaultHandler="com.pandora.ui.command.RevertWorkspace"
+             id="com.pandora.ui.revertworkspace"
+             name="还原配置">
+       </command>
+       <!--
+       <command
+			 categoryId="com.aptana.ui.category"
+             defaultHandler="com.pandora.ui.command.EclipseHelp"
+             id="com.pandora.ui.eclipsehelp"
+             name="viewlog">
+       </command>
+       -->
+    </extension>
+    <extension
+          id="com.pandora.ui.ruby.menu"
+          name="RubyMenu"
+          point="org.eclipse.ui.menus">
+       
+       <!-- 编辑菜单下的Ruby脚本菜单 -->
+       <!--menuContribution
+             locationURI="menu:edit2?before=ruby.html">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.edit.ruby.html">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:edit2?before=ruby.css">
+           <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.edit.ruby.css">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:edit2?before=ruby.js">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.edit.ruby.js">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:edit2?before=ruby.source">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.edit.ruby.source">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:edit2?before=ruby.text">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.edit.ruby.text">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:edit2?before=ruby.math">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.edit.ruby.math">
+          </dynamic>
+       </menuContribution-->
+       
+       
+       <!-- 插入菜单下的Ruby脚本菜单 -->
+       <menuContribution
+             locationURI="menu:insert?before=ruby.html">
+          <menu
+                label="插入符号与实体字符(&amp;S)">
+	            <command
+	                commandId="com.pandora.ui.insert.ruby.source.newline"
+	                label="插入JS换行符\n(&amp;B)"
+                	style="push"
+	                >
+	            </command>
+	            <command
+	                commandId="com.pandora.ui.insert.ruby.html.quick_br"
+	                 label="插入HTML换行&lt;br&gt;(&amp;B)"
+                	style="push"
+	                >
+	            </command>
+                <!--command
+                      commandId="com.pandora.ui.insert.ruby.html.convert_to_entities">
+                </command>
+                <command
+                      commandId="com.pandora.ui.insert.ruby.html.convert_to_entities_excluding_tags">
+                </command>
+                <command
+                      commandId="com.pandora.ui.insert.ruby.html.decode_entities">
+                </command-->
+                <command
+                      commandId="com.pandora.ui.insert.ruby.html.nbsp"
+	                 label="HTML中插入空白字符&amp;nbsp;(&amp;B)"
+                	style="push"
+                      >
+                </command>
+                 <command
+                      commandId="com.pandora.ui.insert.ruby.html.insert_entity">
+                </command>
+          </menu>
+          <command commandId="com.pandora.ui.insert.ruby.html.insert_tag_pair"
+          			label="使用选中单词插入HTML标签"
+                	style="push"
+          >
+          </command>
+          <command commandId="com.pandora.ui.insert.ruby.html.insert_close_tag"
+          		   label="插入闭合标签(&amp;E)"
+                   style="push"
+          >
+          </command>
+          <menu
+                label="插入文档声明(&amp;D)">
+                <command commandId="com.pandora.ui.insert.ruby.html.html_5"></command>
+                <command commandId="com.pandora.ui.insert.ruby.html.html_4_strict"></command>
+                <command commandId="com.pandora.ui.insert.ruby.html.html_4_transitional"></command>
+                <separator
+                      name="com.pandora.ui.insert.ruby.separator3" visible="true">
+                </separator>
+                <command commandId="com.pandora.ui.insert.ruby.html.xhtml_1_frameset"></command>
+                <command commandId="com.pandora.ui.insert.ruby.html.xhtml_1_strict"></command>
+                <command commandId="com.pandora.ui.insert.ruby.html.xhtml_1_transitional"></command>
+                <command commandId="com.pandora.ui.insert.ruby.html.xhtml_11"></command>
+          </menu>
+          <separator
+              name="com.pandora.ui.insert.ruby.separator4" visible="true">
+          </separator>
+          <command commandId="com.pandora.ui.insert.ruby.text.add_line_numbers"
+          		   label="在当前文档每行开头插入行号(&amp;L)"
+                   style="push"
+          >
+          </command>
+          <command commandId="com.pandora.ui.insert.ruby.text.copyright"
+          		   label="插入版权信息(&amp;C)"
+                   style="push"
+          >
+          </command>
+          <command commandId="com.pandora.ui.insert.ruby.text.current_date"
+          		   label="插入当前时间(&amp;T)"
+                   style="push"
+          >
+          </command>
+       </menuContribution>
+       <!--menuContribution
+             locationURI="menu:insert?before=ruby.css">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.insert.ruby.css">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:insert?before=ruby.js">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.insert.ruby.js">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:insert?before=ruby.source">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.insert.ruby.source">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:insert?before=ruby.text">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.insert.ruby.text">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:insert?before=ruby.math">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.insert.ruby.math">
+          </dynamic>
+       </menuContribution-->
+       
+       <!-- 转义菜单下的Ruby脚本菜单 -->
+       <menuContribution
+             locationURI="menu:transfer?after=ruby.html">
+          <command commandId="com.pandora.ui.transfer.ruby.html.url_escape"></command>
+          <command commandId="com.pandora.ui.transfer.ruby.html.url_unescape"></command>
+       </menuContribution>
+       <!--menuContribution
+             locationURI="menu:transfer?before=ruby.css">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.transfer.ruby.css">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:transfer?before=ruby.js">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.transfer.ruby.js">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:transfer?before=ruby.source">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.transfer.ruby.source">
+          </dynamic>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:transfer?before=ruby.text">
+          <dynamic
+                class="com.pandora.ui.menu.RubyCommandContributionItem"
+                id="com.pandora.ui.transfer.ruby.text">
+          </dynamic>
+       </menuContribution-->
+       <!--menuContribution
+             locationURI="menu:transfer?before=ruby.math">
+          <menu
+                label="转进制(&amp;T)">
+                <command commandId="com.pandora.ui.transfer.ruby.math.decimal_to_hex"></command>
+                <command commandId="com.pandora.ui.transfer.ruby.math.decimal_to_octal"></command>
+                <command commandId="com.pandora.ui.transfer.ruby.math.hex_to_decimal"></command>
+                <command commandId="com.pandora.ui.transfer.ruby.math.octal_to_decimal"></command>
+          </menu>
+       </menuContribution-->
+       <menuContribution
+             locationURI="menu:transfer?after=com.pandora.ui.transfer.ruby.html.url_unescape">
+          <menu
+                label="将选中HTML代码转义">
+                <command
+                      commandId="com.pandora.ui.insert.ruby.html.convert_to_entities"
+                      label="将选中的HTML转义">
+                </command>
+                <command
+                      commandId="com.pandora.ui.insert.ruby.html.convert_to_entities_excluding_tags"
+                      label="将选中的HTML除标签外部分转义">
+                </command>
+                <!--command
+                      commandId="com.pandora.ui.insert.ruby.html.decode_entities"
+                      label="将选中的HTML(&amp;T)除标签外部分转义">
+                </command-->
+          </menu>
+       </menuContribution>
+       
+       
+        <!-- 查找菜单下的Ruby脚本菜单 -->
+       <menuContribution
+             locationURI="menu:search1?after=ruby.text">
+           <menu
+                label="提取(&amp;T)">
+                <command commandId="com.pandora.ui.search.ruby.text.distill"></command>
+                <command commandId="com.pandora.ui.search.ruby.text.copy_matching_lines"></command>
+                <command commandId="com.pandora.ui.search.ruby.text.copy_non_matching_lines"></command>
+          </menu>
+          <command commandId="com.pandora.ui.search.ruby.html.docs_for_tag"></command>
+       </menuContribution>
+    </extension>
+    
+    
+    
+    <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+      		allPopups="true"
+            locationURI="popup:#AbstractTextEditorContext?after=QuickAssist">
+            <menu id="com.aptana.editor.js.menu.surround"
+                label="包围">
+                <separator
+                      name="contents">
+                </separator>
+	              <command
+	                commandId="com.pandora.ui.edit.ruby.html.wrap.wrap_selection_in_tag_pair">
+	          	 </command>
+	             <command
+	                commandId="com.pandora.ui.edit.ruby.html.wrap.wrap_lines_in_tag_pairs">
+	          	 </command>
+            </menu>
+      </menuContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=projectexplorer.indexing.main">
+            <command
+                  commandId="com.pandora.ui.command.importFramework">
+                  <visibleWhen
+	                  checkEnabled="false">
+		               <iterate
+		                     ifEmpty="false">
+		                  <and>
+		                     <instanceof
+		                           value="org.eclipse.core.resources.IResource">
+		                     </instanceof>
+		                  </and>
+		               </iterate>
+	            </visibleWhen>
+            </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.pandora.ui.startpage.BrowserEditor"
+            default="false"
+            icon="icons/window1616.png"
+            id="com.pandora.editor.ui.createapp"
+            matchingStrategy="com.pandora.ui.startpage.BrowserEditorMatchingStrategy"
+            name="HBuilder入门">
+      </editor>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="com.pandora.ui.search.actionSet"
+            label="Search"
+            visible="true">
+            
+            <action id="com.pandora.search.OpenSearchDialog"
+				definitionId="org.eclipse.search.ui.openSearchDialog"
+				menubarPath="search1/openSearchDialog"
+				label="搜索框(&amp;S)"
+				helpContextId="open_search_dialog_action_context"
+				class="org.eclipse.search.internal.ui.OpenSearchDialogAction"
+				style="push"/>
+				
+			<!--action id="org.eclipse.search.TextSearchWorkingSet"
+         	    definitionId="org.eclipse.search.ui.performTextSearchWorkingSet"
+         	    menubarPath="search1/textSeach/group1"
+         	    style="push" 
+         	    label="在工作集中查找文本" 
+         	    class="org.eclipse.search2.internal.ui.text2.FindInWorkingSetActionDelegate"/-->         	    
+
+         	<action id="org.eclipse.search.TextSearchFile"
+         	    definitionId="org.eclipse.search.ui.performTextSearchFile"
+         	    menubarPath="search1/textSeach/group1"
+         	    style="push" 
+         	    label="在文件中查找文本(&amp;F)" 
+         	    class="org.eclipse.search2.internal.ui.text2.FindInFileActionDelegate"/>
+
+         	<action id="org.eclipse.search.TextSearchProject"
+         	    definitionId="org.eclipse.search.ui.performTextSearchProject"
+         	    menubarPath="search1/textSeach/group2"
+         	    style="push" 
+         	    label="在项目中查找文本(&amp;P)" 
+         	    class="org.eclipse.search2.internal.ui.text2.FindInProjectActionDelegate"/>
+
+         	<action id="org.eclipse.search.TextSearchWorkspace"
+         	    definitionId="org.eclipse.search.ui.performTextSearchWorkspace"
+         	    menubarPath="search1/textSeach/group3"
+         	    style="push" 
+         	    label="在工作空间中查找文本(&amp;W)" 
+         	    class="org.eclipse.search2.internal.ui.text2.FindInWorkspaceActionDelegate"/>
+      </actionSet>
+      <actionSet
+            label="gotoLastEditPosition"
+            visible="true"
+            id="com.pandora.ui.annotationNavigation.actionSet">
+          <action
+               id="org.eclipse.ui.edit.text.gotoLastEditPosition"
+               menubarPath="goto/source"
+               class="org.eclipse.ui.texteditor.GotoLastEditPositionAction"
+               definitionId="org.eclipse.ui.edit.text.gotoLastEditPosition"
+               label="转到上一个编辑位置(&amp;C)">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+       <definition
+            id="com.pandora.expression.isTextEditor">
+         <with
+              variable="activePart">
+           <instanceof
+                 value="org.eclipse.ui.texteditor.ITextEditor">
+           </instanceof>
+        </with>
+      </definition>
+      
+      <definition
+            id="com.pandora.expression.isProject">
+         <with variable="selection">
+     		<iterate ifEmpty="false">
+                <adapt type="org.eclipse.core.resources.IResource">
+		             <instanceof
+                     	value="org.eclipse.core.resources.IProject">
+		             </instanceof>
+         		</adapt>
+            </iterate>
+     	</with>
+      </definition>
+      
+      <definition
+            id="com.pandora.expression.isEditor">
+         <with
+              variable="activePart">
+           <instanceof
+                 value="com.aptana.editor.common.AbstractThemeableEditor">
+           </instanceof>
+        </with>
+      </definition>
+      <definition
+            id="com.pandora.expression.isHtml">
+         <with
+               variable="activePartId">
+               <or>
+		            <equals
+		                  value="com.aptana.editor.html">
+		            </equals>
+		            <equals
+		                  value="com.aptana.editor.php">
+		            </equals>
+               </or>
+         </with>
+      </definition>
+      <definition
+            id="com.pandora.expression.isCss">
+         <with
+               variable="activePartId">
+            <equals
+                  value="com.aptana.editor.css">
+            </equals>
+         </with>
+      </definition>
+      <definition
+            id="com.pandora.expression.isJs">
+         <with
+               variable="activePartId">
+            <equals
+                  value="com.aptana.editor.js">
+            </equals>
+         </with>
+      </definition>
+   </extension>
+</plugin>

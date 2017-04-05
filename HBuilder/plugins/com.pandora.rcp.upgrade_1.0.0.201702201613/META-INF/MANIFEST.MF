@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Export-Package: com.pandora.rcp.upgrade
+Require-Bundle: org.eclipse.equinox.p2.core,org.eclipse.equinox.p2.eng
+ ine,org.eclipse.equinox.p2.operations,org.eclipse.equinox.p2.metadata
+ ,com.pandora.core,com.aptana.core,org.eclipse.equinox.p2.repository,c
+ om.aptana.ui,org.eclipse.equinox.p2.ui,com.pandora.ui,com.pandora.edi
+ tor.ui;bundle-version="1.0.0",com.aptana.portal.ui.eclipse36;bundle-v
+ ersion="3.0.0",org.eclipse.equinox.p2.ui.sdk;bundle-version="1.0.200"
+ ,org.eclipse.epp.mpc.ui;bundle-version="1.1.1",org.eclipse.equinox.si
+ mpleconfigurator;bundle-version="1.0.200",com.aptana.ui.epl;bundle-ve
+ rsion="3.0.0",org.eclipse.ecf.provider.filetransfer.httpclient;bundle
+ -version="4.0.0",org.eclipse.ecf.provider.filetransfer;bundle-version
+ ="3.2.0",org.eclipse.ecf.filetransfer;bundle-version="5.0.0",org.ecli
+ pse.ecf;bundle-version="3.1.300",com.aptana.ide.libraries.subscriptio
+ n,com.pandora.version,com.pandora.cef3,com.pandora.core.utils,com.pan
+ dora.view.browser
+Bundle-Vendor: %Bundle-Vendor
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Bundle-Version: 1.0.0.201702201613
+Bundle-Name: %Bundle-Name
+Bundle-Activator: com.pandora.rcp.upgrade.UpgradeActivator
+Bundle-ManifestVersion: 2
+Import-Package: org.apache.commons.httpclient;version="[3.0.1,3.1.0]",
+ org.apache.commons.httpclient.auth;version="[3.0.1,3.1.0]",org.apache
+ .commons.httpclient.methods;version="[3.0.1,3.1.0]",org.apache.common
+ s.httpclient.params;version="[3.0.1,3.1.0]",org.apache.commons.httpcl
+ ient.protocol;version="[3.0.1,3.1.0]",org.apache.commons.httpclient.u
+ til;version="[3.0.1,3.1.0]",org.apache.commons.logging;version="1.0.4
+ ",org.apache.commons.logging.impl;version="1.0.4",org.eclipse.core.ru
+ ntime.jobs,org.eclipse.osgi.util;version="1.0.0",org.osgi.framework;v
+ ersion="1.3.0",org.osgi.service.log;version="1.3.0",org.osgi.service.
+ url;version="1.0.0",org.osgi.util.tracker;version="1.3.2"
+Bundle-SymbolicName: com.pandora.rcp.upgrade;singleton:=true
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+
+

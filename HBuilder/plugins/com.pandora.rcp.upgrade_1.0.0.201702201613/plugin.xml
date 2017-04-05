@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <!--extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.pandora.rcp.upgrade.StartupCheckUpadte"></startup>
+   </extension-->
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:tool?after=com.pandora.ui.tool.ruby.wordcount">
+         <separator
+               name="com.pandora.ui.preferences.separator2"
+               visible="true">
+         </separator>
+         <command
+               commandId="com.pandora.rcp.upgrade.favoritePlugins.FavoritePluginsHandler"
+               label="插件安装(&amp;F)">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.ui.category.window"
+            defaultHandler="com.pandora.rcp.upgrade.favoritePlugins.FavoritePluginsHandler"
+            id="com.pandora.rcp.upgrade.favoritePlugins.FavoritePluginsHandler"
+            name="常用插件安装">
+      </command>
+      <command
+            categoryId="org.eclipse.ui.category.window"
+            defaultHandler="com.pandora.rcp.upgrade.handler.CheckUpdateHandler"
+            id="com.pandora.rcp.upgrade.handler.CheckUpdate"
+            name="检查新版本(&amp;U)">
+      </command>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.pandora.rcp.upgrade.UpgradeStartup"></startup>
+   </extension>
+</plugin>

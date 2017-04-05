@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-Vendor: DCloud
+Fragment-Host: com.pandora.nodejs;bundle-version="1.0.0"
+Bundle-Version: 1.0.0.201603031741
+Eclipse-PlatformFilter: (& (osgi.os=win32) (osgi.arch=x86))
+Bundle-Name: nodejs win32 lib plugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.pandora.nodejs.win32;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+
+

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,com.pandora.no
+ dejs,com.pandora.core.utils,org.eclipse.core.resources,org.eclipse.ui
+ .ide,org.eclipse.ui.workbench,com.pandora.libraries,org.eclipse.ui.co
+ nsole
+Bundle-Vendor: DCloud
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201608021620
+Bundle-Name: Nodejs Tools
+Bundle-Activator: com.pandora.nodejs.tools.Activator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.pandora.nodejs.tools;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+
+

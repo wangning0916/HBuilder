@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>关于</title>
+		<style type="text/css" media="screen">
+			body{
+				font-family:tahoma,Verdana,微软雅黑;
+				overflow-y:hidden;
+				margin:0px;
+				padding:0px;
+				background: url(../icons/about.jpg)  no-repeat;margin:0px;padding:0px;font-size:14px;color:#000;
+				cursor:default;
+				
+			}
+			.divline{
+				float: left;width:95%;
+				margin-left: 60px;
+				color:#6b6b6b;
+				margin-top: 5px;
+				width: 590px;
+				padding: 0px;
+			}
+			.firstdiv{
+				margin-top: 148px;
+			}
+			.divdesc{
+				float: left;
+				width: 70%;
+			}
+			.lastdiv{
+				margin-top: -60px;
+			}
+			.divimg{
+				float: left;
+				width: 20%;
+			}
+			.p_left_44{
+				width:44px;float:left
+			}
+			.p_left_28{
+				width:24px;float:left;
+			}
+			.p_right{
+				width:300px;float:left;
+				margin-left: 10px;
+			}
+			p{
+				margin: 0px;
+				padding: 0px;
+			}
+			a{
+				color:#E05B1A;
+				
+			}
+		</style>
+		<script tyep="text/javascript" >
+			//IDE用来设置版本号的方法
+			function setVersion(version){
+				document.getElementById("version").innerHTML=version;
+			}
+			//屏蔽F5
+			function doKey(){  
+				if ( event.keyCode==116){  
+					event.keyCode = 0;  
+					event.cancelBubble = true;  
+					return false;  
+				}
+			}
+			//禁止后退键 作用于Firefox、Opera  
+			document.onkeypress=doKey;  
+			//禁止后退键  作用于IE、Chrome  
+			document.onkeydown=doKey;
+		</script>
+	</head>
+	<body>
+		<div class="divline firstdiv"><p class="p_left_44">HBuilder&nbsp;</p> <p class="p_right" id="version"></p></div>
+		<div class="divline">Copyright© DCloud Co.,Ltd</div>
+		<div class="divline" style="color: #E05B1A;"><a href="#" onclick="OPENURL('http://www.dcloud.io')">http://www.dcloud.io</a></div>
+		<div class="divline" ><p class="p_left_28" style="background: url(../icons/sina_checked.png) no-repeat"> &nbsp;&nbsp; </p><p class="p_right" style="color: #E05B1A;"><a  href="#" onclick="OPENURL('http://e.weibo.com/dhnetwork')" >http://e.weibo.com/dhnetwork</a></p></div>
+		<div class="divline"><p class="p_left_28" style="background: url(../icons/weixin.png) no-repeat 0 !important;"> &nbsp;&nbsp; </p><p class="p_right" style="color: #E05B1A;"><a>DCloud</a></p></div>
+		<div class="divline"><div class="divdesc">HBuilder support HTML5+ specification，HTML5+ is anenhanced HTML5 extensions defined by the HTML5 Industry Alliance</div><div class="divimg"><img src="../icons/dimensional.png" /> </div></div>
+		<div class="divline lastdiv"><a href="#" onclick="OPENURL('http://www.html5plus.org')">http://www.html5plus.org</a></div>
+	</body>
+</html>

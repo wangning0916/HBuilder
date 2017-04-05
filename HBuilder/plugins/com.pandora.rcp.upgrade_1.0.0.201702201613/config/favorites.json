@@ -1,0 +1,148 @@
+{
+    "favorites": [
+    	{
+            "name": "Aptana php",
+            "description": "Aptana php插件 ",
+            "url": "http://www.aptana.com/products/php/",
+            "featureNames": [
+                "com.aptana.php.feature"
+            ]
+        },
+        {
+            "name": "Aptana pydev",
+            "description": "Aptana pydev插件 ",
+            "url": "http://www.aptana.com/products/pydev/",
+            "featureNames": [
+                "org.python.pydev.feature",
+                "org.python.pydev.django_templates.feature",
+                "com.aptana.pydev.feature"
+            ]
+        },
+        {
+            "name": "nodeclipse",
+            "description": "node.js辅助插件 ",
+            "url": "http://www.nodeclipse.org/updates/",
+            "featureNames": [
+                "org.nodeclipse",
+                "org.nodeclipse.enide.editors.jade.feature",
+                "org.nodeclipse.pluginslist.feature",
+                "org.eclipse.wst.jsdt.feature"
+            ]
+        },
+        {
+            "name": "EGIT",
+            "description": "git分布式版本管理插件",
+            "url": "http://www.eclipse.org/egit/",
+            "featureNames": [
+                "org.eclipse.egit",
+                "org.eclipse.egit.mylyn"
+            ]
+        },
+        {
+            "name": "SVN",
+            "description": "SVN版本管理插件，版本号为1.6.x",
+            "url": "http://subclipse.tigris.org/update_1.6.x/",
+            "featureNames": [
+                "com.collabnet.subversion.merge.feature",
+                "org.tigris.subversion.subclipse.mylyn",
+                "org.tigris.subversion.subclipse.graph.feature",
+                "org.tmatesoft.svnkit",
+                "com.sun.jna",
+                "org.tigris.subversion.clientadapter.svnkit.feature",
+                "org.tigris.subversion.clientadapter.feature",
+                "org.tigris.subversion.subclipse",
+                "org.tigris.subversion.clientadapter.javahl.feature"
+            ]
+        },
+    	{
+            "name": "iOS连接插件",
+            "description": "64位Windows使用64位iTunes 12.1及以上版本的iOS连接插件",
+            "url": "http://update.dcloud.net.cn/test/plugin",
+            "featureNames": [
+                "com.pandora.launcher.resource.feature"
+            ]
+        },
+        {
+            "name": "EMMET",
+            "description": "快速编写html和css代码的方式（原名Zen coding）",
+            "url": "",
+            "featureNames": []
+        },
+        {
+            "name": "FTP Sync",
+            "description": "提供文件同步的功能，支持FTP、SFTP、FTPS、本地文件等",
+            "url": "http://update.dcloud.net.cn/test/plugin",
+            "featureNames": [
+                "com.pandora.syncing.feature"
+            ]
+        },
+        {
+            "name": "JsCompressor",
+            "description": "安装后对js和css文件点右键选Compress JavaScript、Compress CSS即可压缩",
+            "url": "http://jscompressor.oncereply.me",
+            "featureNames": [
+                "me.oncereply.jscompressor.closurecompiler.feature",
+                "me.oncereply.jscompressor.feature"
+            ]
+        },
+        {
+            "name": "360手助轻应用",
+            "description": "360手机助手轻应用插件",
+            "url": "http://update.dcloud.net.cn/test/plugin",
+            "featureNames": [
+                "com.pandora.lightapp.feature"
+            ]
+        },
+        {
+            "name": "JsBeauty",
+            "description": "格式化html、js、css代码",
+            "url": "",
+            "featureNames": []
+        },
+        {
+            "name": "代码即时渲染",
+            "description": "HTML代码即时渲染器",
+            "url": "",
+            "featureNames": []
+        },
+        {
+            "name": "代码输入法",
+            "description": "代码输入法",
+            "url": "",
+            "featureNames": []
+        },
+        {
+            "name": "语法验证器",
+            "description": "集成了w3c及jshint等各种验证器",
+            "url": "",
+            "featureNames": []
+        },
+        {
+            "name": "应用真机联调",
+            "description": "HTML应用真机联调器",
+            "url": "",
+            "featureNames": []
+        },
+        {
+            "name": "代码格式整理",
+            "description": "提供JS、CSS、HTML、Less、SCSS的代码格式整理功能",
+            "type":"node插件",
+            "url": "",
+            "featureNames": []
+        },
+        {
+            "name": "JS、CSS压缩",
+            "description": "提供JS、CSS文件压缩功能，对js和css文件点右键选压缩",
+            "type":"node插件",
+            "url": "",
+            "featureNames": []
+        },
+        {
+            "name": "Less、SCSS编译",
+            "description": "提供将Less、SCSS文件编译为css的功能，对less和scss文件点右键选编译",
+            "type":"node插件",
+            "url": "",
+            "featureNames": []
+        }
+    ]
+}

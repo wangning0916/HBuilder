@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>user info</title>
+    <link rel="stylesheet" href="userinfo_.css" />
+	<script type="text/javascript">
+				// 禁止鼠标右键 
+		if (window.Event) {
+		  document.captureEvents(Event.MOUSEUP); 
+		  }
+		 
+		function nocontextmenu() 
+		{
+		 	event.cancelBubble = true
+		 	event.returnValue = false;
+		 	return false;
+		}	 
+	
+		function norightclick(e) 
+		{
+			 if (window.Event) 
+			 {
+			  if (e.which == 2 || e.which == 3)
+				   return false;
+			 }
+			 else if (event.button == 2 || event.button == 3)
+			  {
+				   event.cancelBubble = true
+				   event.returnValue = false;
+			   	   return false;
+			  }
+		}
+		 
+		document.oncontextmenu = nocontextmenu;  // for IE5+
+		document.onmousedown = norightclick;  // for all others
+		var email ='';
+		
+		function changePwd(){
+			window.location.href="changepassword.html";
+		}		
+		function setemail(tmp){
+			email = tmp;	
+			document.getElementById("email").innerHTML=email;
+		}
+		function setscore(tmp){
+			document.getElementById("score").innerHTML=tmp;
+		}
+		function sharesina(){
+			var shareurl = "http://service.weibo.com/share/share.php";
+			shareurl = shareurl +"?url=http://www.dcloud.io&appkey=&title=发现一个比较好用的Html5编辑器HBuilder，推荐给大家试用下。&pic=&ralateUid=&language=zh_cn";
+			openurlAdapter(shareurl);
+		}
+		function shareqq(){
+			var shareurl = "http://v.t.qq.com/share/share.php";
+			shareurl = shareurl +"?url=http://www.dcloud.io&appkey=&title=发现一个比较好用的Html5编辑器HBuilder，推荐给大家试用下。&pic=&ralateUid=&language=zh_cn";
+			openurlAdapter(shareurl);
+		}
+		function scorerule(){
+			var scorerule_url = "http://ask.dcloud.net.cn/score/index";
+			openurlAdapter(scorerule_url);
+		}
+		function mailservice(){
+			openurlAdapter("mailto:service@dcloud.io");
+		}
+		function closeWindowAdapter(){
+			if(window.cefQuery){
+				window.cefQuery({
+				    request: 'closeWindow',
+				    onSuccess: function(response) {},
+				    onFailure: function(error_code, error_message) {}
+				});
+			}else{
+				closeWindow();
+			}
+		}
+		function exitAdapter(){
+			if(window.cefQuery){
+				window.cefQuery({
+				    request: 'exit',
+				    onSuccess: function(response) {},
+				    onFailure: function(error_code, error_message) {}
+				});
+			}else{
+				exit();
+			}
+		}
+		function openurlAdapter(url){
+			if(window.cefQuery){
+				window.cefQuery({
+				    request: 'openurl?'+url,
+				    onSuccess: function(response) {},
+				    onFailure: function(error_code, error_message) {}
+				});
+			}else{
+				openurl(url)
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="userinfo" style="">
+		<div class="top">
+		<div class="topcontent">
+				<div class="close" onclick="closeWindowAdapter();" ></div>			
+		</div>
+		</div>
+		<div class="email" id="email"></div>
+	
+		<div class="integral">
+			<div class="count">积分：<b style="color: #f36d00;" id="score">--</b>  <a href="#" style="margin-left: 80px;" onclick="scorerule()">积分规则</a></div>
+		</div>
+
+		<div class="line">
+			
+		</div>
+		<div class="share">
+			<ul>
+				<li>如果你觉得HBuilder不错，就分享给你的朋友吧</li>
+				<li><a href="#" onclick="sharesina()" ><img border="0" src="../icons/sina_login.png" /></a>&nbsp;&nbsp;<a href="#" onclick="shareqq()" ><img border="0" src="../icons/qq_login.png" /></a></li>
+				<li>如果有任何问题或者建议，请联系我们</li>
+				<li><a href="#" onclick="mailservice()" class="service">service@dcloud.io</a></li>
+			</ul>
+		</div>
+		<div class="buttom">
+			<div class="buttom_button">
+				<input type="button" value="更改密码" onclick="changePwd()" class="button" src="../icons/button.png"/>
+			</div>
+			<div class="buttom_button">
+				<input type="button" value="退出账号" onclick="exitAdapter()" class="button"  src="../icons/button.png"/>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

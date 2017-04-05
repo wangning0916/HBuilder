@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html class="ui-page-error">
+
+	<head>
+		<!--
+        	作者：Houfeng@DCloud.io
+        	时间：2015-04-05
+        	描述：HBuilder 登录界面
+        -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Error | HBuilder</title>
+		<link rel="stylesheet" href="styles/jquery-ui.css" />
+		<link rel="stylesheet" href="styles/main.css" />
+		<!--[if lte IE 6]> 
+		<link rel="stylesheet" href="styles/ie6.css" />
+		<script>
+			window.isIE6=true;
+		</script>
+		<![endif]-->
+		<!--[if gte IE 6]> 
+		<script>
+			window.isIE=true;
+		</script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="ui-container">
+			<div class="ui-menu-help">
+				<div class="ui-arrow-out" onmousemove="return false;"></div>
+				<div class="ui-arrow-in png" onmousemove="return false;"></div>
+				<ul>
+					<li class="ui-menu-spliter" data-url='http://www.dcloud.io'><a href="#">访问官网</a>
+					</li>
+					<li class="ui-menu-spliter" data-url='http://e.weibo.com/dhnetwork'><a href="#">访问微博</a>
+					</li>
+					<li data-url='mailto:service@dcloud.io'><a href="#">邮件反馈</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-header png">
+				<div class="ui-control">
+					<a href="#" class="ui-help png">
+					</a>
+					<a href="#" class="ui-close png">
+					</a>
+				</div>
+				<div class="ui-shadow"></div>
+			</div>
+			<div class="ui-content">
+				<div class="ui-error-list">
+					<h1>启动失败,请尝试以下操作</h1>
+					<ul>
+						<li data-action='restart'>重新启动</li>
+						<li data-action='clearSettings'>还原环境</li>
+						<li data-action='downloadLast'>下载最新版本</li>
+					</ul>
+				</div>
+				<div class="ui-error-image"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="scripts/jquery.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui.js"></script>
+		<script type="text/javascript" src="scripts/invoke.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>
+		<!--[if lte IE 6]> 
+			<script type="text/javascript" src="scripts/ddpng.js"></script>
+			<script>
+				DD_belatedPNG.fix('.png,.png:hover,.png:active');
+			</script>
+		<![endif]-->
+	</body>
+
+</html>

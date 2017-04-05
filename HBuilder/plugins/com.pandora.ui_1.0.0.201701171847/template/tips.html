@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="//template/loading.css" />
+		<style type="text/css" media="screen">
+			body{
+				width: 700px;
+				height: 498px;
+				font-family: Tahoma,Verdana,宋体;
+				color: #5B5B5B;
+				margin: 0px;
+				padding: 0px;
+				border: 1px solid #8C8C8C;
+			}
+			.top{
+				width: 700px;
+			}
+			.top > .title{
+				float: left;
+				width: 650px;
+				padding-top: 8px;
+				padding-left: 8px;
+				font-size: 14px;
+				text-align: left;
+				font-weight: bold;
+			}
+			.top > .close{
+				float: left;
+				width: 25px;
+				padding-top: 8px;
+				margin-left:5px; 
+				margin-top: 5px;
+				background: url(../icons/close_normal.png) no-repeat;
+			}
+			.top > .close:hover{
+				float: left;
+				width: 25px;
+				padding-top: 8px;
+				margin-left:5px; 
+				margin-top: 5px;
+				background: url(../icons/close_hover.png) no-repeat;
+			}
+			.top > .close:active{
+				float: left;
+				width: 25px;
+				padding-top: 8px;
+				margin-left:5px; 
+				margin-top: 5px;
+				background: url(../icons/close_active.png) no-repeat;
+			}
+			.top > .node{
+				float: left;
+				margin-left: 50px;
+				margin-top:15px;
+				border-radius:2px 2px 2px 2px; 
+				width: 600px;
+				height: 55px;
+				font-size: 12px;
+				line-height: 14px;
+				color: #ff944d;
+				background-color: #f8f8f8 ;
+			}
+			.node_text{
+				width: 100%;
+				float: left;
+				margin-top: 8px;
+				margin-left: 8px;
+			}
+			.content{
+				width: 700px;
+				float: left;
+			}
+			ul{
+				margin-left:50px; 
+				margin-top: 30px;
+			}
+			li{
+				color:#BCBCBC;
+				height: 30px;
+				width: 520px;
+				margin-top:13px; 
+				list-style: none;
+				/*border-bottom: 1px solid #e5e5e5;*/
+			}
+			hr{
+				margin-left: 2px;
+				width: 520px;
+				margin-top:8px; 
+				color: #e5e5e5;
+			}
+			.point{
+				width: 10px;
+				float: left;
+				margin-left: -15px;
+				line-height: 30px;
+				font-size: 12px;
+				color: #5B5B5B;
+			}
+			.page{
+				width: 600px;
+				float: left;
+				margin-left: 10px;
+			}
+			.pageicon{
+				width: 42px;
+				background: url(../newicons/page.png) no-repeat;
+				float: right;
+			}
+			.bottom{
+				width: 700px;
+				background-color:#F8F8F8;
+				height: 62px;
+				padding: auto; 
+				float: left;
+				margin-top:10px; 
+				
+			}
+			input{
+				margin-top:14px;
+				margin-left: 63px; 
+				width: 490px;
+				height: 27px;
+				border: 1px solid #BCBCBC;
+				border-radius:2px 2px 2px 2px; 
+				float: left;
+				padding-left: 8px;
+			}
+			a{
+				background-color: #F68736;
+				border: 1px solid #F48400;
+				border-radius:4px 4px 4px 4px;
+				line-height:35px;
+				text-decoration:none;
+				height: 29px;
+				width: 55px;
+				color:#fff;
+				font-size: 12px;
+				float: left;
+				text-align: center;
+				line-height: 29px;
+				margin-top:14px;
+				margin-left: 25px;
+			}
+			.tips_text{
+				color:#5B5B5B;
+				font-size: 12px;
+			}
+			#delicon{
+				position: absolute;
+				display: none;
+				width: 0px;
+				height: 0px;
+				background: url(../newicons/del.png)no-repeat;
+			}
+		</style>
+		<script type="text/javascript" charset="utf-8">
+		    var dataarray;
+		    var pageid=1;
+		    var count;
+		    var pagecount;
+		    var currentid=1;
+		    var currentline;
+			function showicon(){
+//				alert(this)
+//				alert(this.innerHTML)
+				currentline=this.innerHTML;
+				var obj = this;
+				var x= obj.offsetLeft+480;
+				var y= obj.offsetTop;
+				var deliconObj = document.getElementById("delicon");
+//				alert(x);
+//				alert(y)
+				deliconObj.style.width="30px";
+				deliconObj.style.height="30px";
+				deliconObj.style.marginLeft=x+"px";
+				deliconObj.style.marginTop=y+"px";
+				deliconObj.style.display="block";
+				
+			}
+			function hiddenicon(obj){
+				document.getElementById("delicon").style.display="none";
+				
+			}
+			function showme(obj){
+				obj.style.display="block";
+			}
+			function loadTips(json){
+				dataarray=json;
+				count = json.length;
+				pagecount = Math.ceil(count/5);
+				getCurrentPage(currentid);
+			}
+  			function getCurrentPage(pageid){
+  				var dataarea = document.getElementById("dataarea");
+  				dataarea.innerHTML="";
+  				if (pagecount==1) {
+  					document.getElementById("preimg").src="../newicons/pre_unclick.png?"+Math.random;
+  					document.getElementById("preimg").onclick=null;
+  					document.getElementById("nextimg").src="../newicons/next_unclick.png?"+Math.random;
+  					document.getElementById("nextimg").onclick=null;
+  				}
+  				if(pageid>1){
+  					document.getElementById("preimg").src="../newicons/pre_normal.png?"+Math.random;
+  					document.getElementById("preimg").onclick=getPrePage;
+  				}else{
+  					document.getElementById("preimg").src="../newicons/pre_unclick.png?"+Math.random;
+  					document.getElementById("preimg").onclick=null;
+  				}
+  				if (pageid<pagecount) {
+  					document.getElementById("nextimg").src="../newicons/next_normal.png?"+Math.random;
+//					alert(1)
+  					document.getElementById("nextimg").onclick=getNextPage;
+  				}else{
+  					document.getElementById("nextimg").src="../newicons/next_unclick.png?"+Math.random;
+  					document.getElementById("nextimg").onclick=null;
+  				}
+  				for (var i=(pageid-1)*5; i < pageid*5; i++) {
+  					//开始组装数据
+  					if(i>=count){
+  						break;
+  					}
+					var pointobj = document.createElement("div");
+					pointobj.className="point";
+					pointobj.innerHTML="•";
+					dataarea.appendChild(pointobj);
+  					var liobj = document.createElement("li");
+  					liobj.onmouseover=showicon;
+  					liobj.onmouseout=hiddenicon;
+  					dataarea.appendChild(liobj);
+  					var divobj = document.createElement("div");
+  					divobj.id="div"+i;
+  					divobj.className="tips_text";
+  					divobj.innerHTML=dataarray[i];
+  					liobj.appendChild(divobj);
+  					var hrobj = document.createElement("hr");
+  					dataarea.appendChild(hrobj);
+  //					alert(dataarray[i])
+  				};
+  			}
+  			function getPrePage(){
+//				alert(currentid);
+  				currentid=currentid-1;
+//				alert(currentid);
+  				getCurrentPage(currentid);
+  			}
+  			function getNextPage(){
+//				alert(currentid);
+  				currentid=currentid+1;
+//				alert(currentid);
+  				getCurrentPage(currentid);
+  			}
+  			function submittips(){
+  				var newtips = document.getElementById("newtips").value;
+  				if (newtips=="") {
+  					alert("新增tips不可以为空");
+  					return;
+				}
+  				var result = addTips(newtips)
+  				if(result=="1001"){
+  					reGet();
+  					alert("成功添加一条tips");
+  					document.getElementById("newtips").value="";
+  				}
+  			}
+  			function deletetips(){
+				var result = delTips(currentline);
+				if(result=="1001"){
+					reGet();
+  					alert("成功删除一条tips")
+  				}
+  			}
+  			function reGet(){
+  				currentid = 1;
+  				dataarray=eval("("+reloadtips()+")");
+				count = dataarray.length;
+				pagecount = Math.ceil(count/5);
+				getCurrentPage(currentid);
+  			}
+		</script>
+	</head>
+	<body>
+		<div id="delicon" onmouseover="showme(this)" onclick="deletetips()"></div>
+		<section class="top">
+			<div class="title">Tips设置</div><div class="close" onclick="closeWindow()"> &nbsp; </div>
+			<div class="node"><span class="node_text">Tips内容可以在HBuilder启动封面中显示。</span><span class="node_text">您可以添加一个有趣的tips，如xx,你要减肥，只需添加[user]，你要减肥即可。</span></div>
+		</section>
+		<section class="content">
+			<ul id="dataarea">
+				<!--<div class="point">•</div>
+				<li onmouseover="showicon(this)" onmouseout="hiddenicon(this)">
+					
+					<div id="div1" class="tips_text">
+						按下Ctrl键，移动鼠标到样式或变量的引用处，会出现了可点击的下划线，点下去吧，这就是转到定义。
+					</div>
+					
+				</li>
+				<hr style="color: #e5e5e5;"/>
+				<li onmouseover="showicon(this)" onmouseout="hiddenicon(this)"><div class="tips_text">
+					你还在敲document.getElementById()吗？out了！按下$，一个代码块搞定25个字符！
+				</div></li>
+				<hr style="color: #e5e5e5;"/>
+				<li onmouseover="showicon(this)" onmouseout="hiddenicon(this)"><div class="tips_text">
+					用过多窗格功能吗？对标签页点右键，不管是同一文档还是多个文档，分窗格编辑简直太酷了！
+				</div></li>
+				<hr style=""/>
+				<li onmouseover="showicon(this)" onmouseout="hiddenicon(this)"><div class="tips_text">
+					抛弃"&lt;"吧，那是被淘汰的低效编码方式，直接敲标签的名字，比如input，选择代码块，或者按tab激活emmet。
+				</div></li>
+				<hr style="color: #e5e5e5;"/>
+				<li onmouseover="showicon(this)" onmouseout="hiddenicon(this)"><div class="tips_text">
+					知道代码输入法吗？可以按下主键盘的数字键选择代码助手候选项。如果要直接输入数字，按小键盘的数字键。如果没有小键盘...请按esc关闭代码助手后再输数字。
+				</div></li>
+				<hr style="color: #e5e5e5;"/>-->
+			</ul>
+			
+			<div class="page"> <span class="pageicon"><span style="float: left"><img id="preimg" src="../newicons/pre_unclick.png"  /></span> <span  style="float: left;padding-left: 2px;"><img id="nextimg" src="../newicons/next_unclick.png"  /></span></span> </div>
+		</section>
+		<section class="bottom">
+			<input type="text" id="newtips" placeholder="在此输入你要添加的Tips" maxlength="20"/><a href="#" onclick="submittips()">新增</a>
+		</section>
+	</body>
+</html>

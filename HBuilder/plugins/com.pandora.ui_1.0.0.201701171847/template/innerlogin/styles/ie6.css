@@ -1,0 +1,32 @@
+/**
+ * By Houfeng
+ * Houfeng@DCloud.io
+ * IE6 兼容样式
+ * */
+
+.ui-arrow-out {
+	width: 0px;
+	height: 0px;
+	font-size: 0px;
+	line-height: 0px;
+	border-bottom: solid 8px #fff;
+	border-left: solid 8px #fff;
+	border-right: solid 8px #fff;
+	position: absolute;
+	left: 50%;
+	top: -8px;
+}
+.ui-arrow-in {
+	position: absolute;
+	left: 50%;
+	top: -14px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url(images/arrow-up.png);
+}
+.ui-menu-help {
+	height: 66px !important;
+}

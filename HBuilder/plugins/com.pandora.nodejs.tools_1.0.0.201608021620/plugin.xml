@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Hbuilder Node"
+            id="com.pandora.nodejs.tools">
+      </category>
+      <command
+            categoryId="com.pandora.nodejs.tools"
+            id="com.pandora.nodejs.tools.compressor"
+            name="压缩(&amp;C)..."/>
+      <command
+            categoryId="com.pandora.nodejs.tools"
+            id="com.pandora.nodejs.tools.compile"
+            name="编译(&amp;C)..."/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+          <handler
+               commandId="com.pandora.nodejs.tools.compressor" 
+               class="com.pandora.nodejs.tools.handler.CompressorHandler">
+         </handler>
+          <handler
+               commandId="com.pandora.nodejs.tools.compile" 
+               class="com.pandora.nodejs.tools.handler.CompileHandler">
+         </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="popup:#AbstractTextEditorContext?after=group.edit">
+            <separator
+                  name="com.pandora.nodejs.tools.separator1" visible="true">
+            </separator>
+            <command
+                  commandId="com.pandora.nodejs.tools.compressor">
+                  <visibleWhen>
+                    <with variable="activeEditorInput">
+                        <adapt type="org.eclipse.core.resources.IResource">
+                        	<or>
+			                    <test property="org.eclipse.core.resources.extension" value="css"/>
+			                    <test property="org.eclipse.core.resources.extension" value="js"/>
+                        	</or>
+		         		</adapt>
+	             	</with>
+                  </visibleWhen>
+            </command>
+            <command
+                  commandId="com.pandora.nodejs.tools.compile">
+                  <visibleWhen>
+                  	<with variable="activeEditorInput">
+                        <adapt type="org.eclipse.core.resources.IResource">
+                        	<or>
+			                    <test property="org.eclipse.core.resources.extension" value="less"/>
+			                    <test property="org.eclipse.core.resources.extension" value="scss"/>
+                        	</or>
+		         		</adapt>
+	             	</with>
+                  </visibleWhen>
+            </command>
+            <separator
+                  name="com.pandora.nodejs.tools.separator2" visible="true">
+            </separator>
+         </menuContribution>
+         <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=group.port">
+            <separator
+                  name="com.pandora.nodejs.tools.separator1" visible="true">
+            </separator>
+            <command
+                  commandId="com.pandora.nodejs.tools.compressor">
+                  <visibleWhen>
+                    <with variable="selection">
+	             	 	<count value="1"/>
+	             		<iterate ifEmpty="false">
+	                        <adapt type="org.eclipse.core.resources.IResource">
+	                        	<or>
+				                    <test property="org.eclipse.core.resources.extension" value="css"/>
+				                    <test property="org.eclipse.core.resources.extension" value="js"/>
+	                        	</or>
+			         		</adapt>
+	                    </iterate>
+	             	</with>
+                  </visibleWhen>
+            </command>
+            <command
+                  commandId="com.pandora.nodejs.tools.compile">
+                  <visibleWhen>
+                  	<with variable="selection">
+	             	 	<count value="1"/>
+	             		<iterate ifEmpty="false">
+	                        <adapt type="org.eclipse.core.resources.IResource">
+	                        	<or>
+				                    <test property="org.eclipse.core.resources.extension" value="less"/>
+				                    <test property="org.eclipse.core.resources.extension" value="scss"/>
+	                        	</or>
+			         		</adapt>
+	                    </iterate>
+	             	</with>
+                  </visibleWhen>
+            </command>
+             <separator
+                  name="com.pandora.nodejs.tools.separator2" visible="true">
+            </separator>
+         </menuContribution>
+   </extension>
+         
+</plugin>

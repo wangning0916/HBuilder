@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Export-Package: com.pandora.ui,com.pandora.ui.action,com.pandora.ui.me
+ nu,com.pandora.ui.startpage,com.pandora.ui.utils,com.pandora.ui.widge
+ t
+Require-Bundle: com.aptana.ui;bundle-version="3.1.4",com.aptana.core;b
+ undle-version="3.3.0",org.eclipse.team.ui,com.pandora.core;bundle-ver
+ sion="1.0.0",org.eclipse.ui.navigator,org.eclipse.ui.ide,com.aptana.i
+ de.libraries.subscription;bundle-version="2.0.3",org.eclipse.ui.navig
+ ator.resources,com.aptana.index.core;bundle-version="3.0.0",com.aptan
+ a.scripting;bundle-version="3.0.0",org.eclipse.ui.editors;bundle-vers
+ ion="3.7.0",com.aptana.scripting.ui;bundle-version="3.0.0",com.aptana
+ .editor.common;bundle-version="3.0.3",com.pandora.stats.core;bundle-v
+ ersion="1.0.0",org.eclipse.search;bundle-version="3.7.0",io.emmet.ecl
+ ipse;bundle-version="1.0.0",com.aptana.theme;visibility:=reexport,com
+ .aptana.portal.ui.eclipse36,com.aptana.webserver.core;bundle-version=
+ "3.0.0",com.aptana.core.io;bundle-version="3.0.3",org.eclipse.ui.brow
+ ser;bundle-version="3.3.101",org.eclipse.equinox.p2.engine;bundle-ver
+ sion="2.1.1",com.pandora.core.utils;bundle-version="1.0.0",org.eclips
+ e.ui.console
+Bundle-Vendor: %Bundle-Vendor
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201701171847
+Bundle-Name: %Bundle-Name
+Bundle-Activator: com.pandora.ui.UiActivator
+Bundle-ManifestVersion: 2
+Import-Package: at.jta
+Bundle-SymbolicName: com.pandora.ui;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
+

@@ -1,0 +1,2 @@
+!define VERSION 8.0.2
+!define BUILD 201703061842

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Export-Package: com.pandora.starters
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime
+Bundle-Vendor: DCloud
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201511132153
+Bundle-Name: HBuilder Starters
+Bundle-Activator: com.pandora.starters.Activator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.pandora.starters
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
+

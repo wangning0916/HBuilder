@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<!--
+        	作者：Houfeng@DCloud.io
+        	时间：2015-04-05
+        	描述：HBuilder 登录界面
+        -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Login | HBuilder</title>
+		<link rel="stylesheet" href="styles/jquery-ui.css" />
+		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="stylesheet" href="styles/transitions.css" />
+		<!--[if gte IE 6]> 
+		<script>
+			window.isIE=true;
+		</script>
+		<style>
+			.ui-view{
+				visibility: visible;
+			}
+			.ui-view-settings{
+				display:none;
+			}
+			#login-account-down{
+				top:10px;
+			}
+		</style>
+		<![endif]-->
+		<!--[if lte IE 7]>
+			<style>
+				.ui-icon-loading{margin-bottom: -3px;}
+				.ui-header .ui-control {width:100px}
+			</style>
+		<![endif]-->
+		<!--[if lte IE 6]> 
+		<link rel="stylesheet" href="styles/ie6.css" />
+		<script>
+			window.isIE6=true;
+		</script>
+		<style>
+			#login-account-down{
+				top:5px;
+				right:18px;
+				background-color:transparent;
+			}
+		</style>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="ui-container">
+			
+			<div class="ui-content">
+				<div class="ui-content-inner ui-view-perspective" style="height: 324px; overflow: hidden;">
+					<div class="ui-view-group ui-view ui-view-current">
+						<div class="ui-view-group-inner">
+							<div data-role='view' class="ui-view-login">
+								<div class="ui-tabs">
+									<ul>
+										<li><a href="#DAccount">DAccount</a>
+										</li>
+									</ul>
+									<div id="DAccount">
+										<div class="ui-alert"> </div>
+										<form class="ui-form-login">
+											<input id='login-account' type="text2" class="ui-textbox account" placeholder="用户名/Email" />
+											<div id="login-account-down" class="png">
+											</div>
+											<input id='login-password' type="password" class="ui-textbox password" placeholder="密码" />
+											<div class="ui-btn-group">
+												<a href="#" class="ui-btn-m login">登录</a>
+												<a href="#" class="ui-btn-small forget-password">忘记密码</a>
+											</div>
+										</form>
+									</div>
+								</div>
+								<a href="#" class="ui-btn-lager ui-btn-reg-go" id="user_reg_a">注册用户 <i class="ui-icon-up png">&nbsp;</i></a>
+							</div>
+							<div data-role='view' class="ui-view-reg">
+								<a href="#" class="ui-btn-lager ui-btn-login-go">已有账号,直接登录 <i class="ui-icon-down png">&nbsp;</i></a>
+								<div class="ui-tabs-panel">
+									<div class="ui-alert"> </div>
+									<form class="ui-form-login">
+										<input id='reg-account' type="text" class="ui-textbox account" placeholder="用户名/Email" />
+										<input id='reg-password' type="password" class="ui-textbox password" placeholder="密码" />
+										<div class="ui-btn-group">
+											<a href="#" class="ui-btn-mm register">注册并登录</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div data-role='view' class="ui-view-settings ui-view">
+						<label class="ui-label">代理设置</label>
+						<div class="ui-tabs-panel">
+							<div class="ui-alert"> </div>
+							<form class="ui-form-login">
+								<p>
+									<label>类型:</label>
+									<select data-name="type" class="ui-textbox ui-select proxy-type" style="width: 153px;height: 29px;">
+										<option value="ProxyNone">不使用代理</option>
+										<option value="ProxyIE">使用系统代理</option>
+										<option value="ProxyUser">使用HTTP代理</option>
+									</select>
+									<label>地址:</label>
+									<input data-name="server" type="text" class="ui-textbox proxy-item" />
+									<label>端口:</label>
+									<input data-name="port" style="width: 55px;" type="text" class="ui-textbox proxy-item" />
+								</p>
+								<p>
+									<label>用户名:</label>
+									<input data-name="account" type="text" class="ui-textbox proxy-item" />
+									<label>密码:</label>
+									<input data-name="password" type="password" class="ui-textbox proxy-item" />
+								</p>
+								<div class="ui-btn-group">
+									<a href="#" class="ui-btn-small proxy-save" style="margin-right: 10px;">保存设置</a>
+									<a href="#" class="ui-btn-small proxy-cancel" style="margin-left: 10px;">取消</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="ui-mask">
+				<div class="ui-mask-bg"></div>
+				<div class="ui-mask-loading"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="scripts/jquery.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui.js"></script>
+		<script type="text/javascript" src="scripts/modernizr.js"></script>
+		<script type="text/javascript" src="scripts/transitions.js"></script>
+		<script type="text/javascript" src="scripts/invoke.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>
+		<!--[if lte IE 9]> 
+			<script type="text/javascript" src="scripts/placeholder.js"></script>
+		<![endif]-->
+		<!--[if lte IE 6]> 
+			<script type="text/javascript" src="scripts/ddpng.js"></script>
+			<script>
+				DD_belatedPNG.fix('.png,.png:hover,.png:active');
+			</script>
+		<![endif]-->
+	</body>
+
+</html>

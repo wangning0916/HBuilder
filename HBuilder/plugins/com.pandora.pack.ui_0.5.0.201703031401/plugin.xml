@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="HBuilder Publish"
+            id="com.pandora.pack.ui.category">
+      </category>
+      <command
+            name="%Menu.Tools.Pack.OpenDownload.label"
+            categoryId="com.pandora.pack.ui.category"
+            id="com.pandora.pack.ui.opendownload.command">
+      </command>
+      <command
+            name="%Menu.Tools.Pack.ViewProgress.label"
+            categoryId="com.pandora.pack.ui.category"
+            id="com.pandora.pack.ui.viewprogress.command">
+      </command>
+      <command
+            name="%Menu.Tools.Pack.MakePackage.label"
+            categoryId="com.pandora.pack.ui.category"
+            id="com.pandora.pack.ui.makepackage.command">
+      </command>
+      
+      <command
+            name="转换成移动App(&amp;T)"
+            categoryId="com.pandora.pack.ui.category"
+            id="com.pandora.pack.ui.tomobile">
+      </command>
+      <command
+            name="制作移动App资源升级包(&amp;W)..."
+            categoryId="com.pandora.pack.ui.category"
+            id="com.pandora.pack.ui.exportwgt.command">
+      </command>
+      <command
+            name="发行为流应用(&amp;S)..."
+            categoryId="com.pandora.pack.ui.category"
+            id="com.pandora.pack.ui.publishStreamApp.command">
+      </command>
+      <command
+            name="生成本地打包App资源(&amp;R)..."
+            categoryId="com.pandora.pack.ui.category"
+            id="com.pandora.pack.ui.exportld.command">
+      </command>
+      <command
+            name="发布快码(&amp;K)..."
+            categoryId="com.pandora.pack.ui.category"
+            id="com.pandora.pack.ui.kuaima.command">
+      </command>
+      <!--command
+            name="js原生混淆配置(&amp;C)..."
+            categoryId="com.pandora.pack.ui.category"
+            id="com.pandora.pack.ui.confusion.command">
+      </command-->
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.bindings">
+       <key
+            commandId="com.pandora.pack.ui.publishStreamApp.command"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="hbuilder.accelerator"
+            sequence="M1+M3+R">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.pandora.pack.ui.opendownload.command" 
+            class="com.pandora.pack.ui.handlers.OpenDownloadHandler" >
+            <enabledWhen>
+	            <or>
+	            	<with variable="activePart">
+			             <test forcePluginActivation="true"
+			                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+			             </test>
+	             	</with>
+	             	<with variable="selection">
+	             		<iterate ifEmpty="false">
+	                        <adapt type="org.eclipse.core.resources.IResource">
+					             <test forcePluginActivation="true"
+					                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+					             </test>
+			         		</adapt>
+	                    </iterate>
+	             	</with>
+	            </or>
+            </enabledWhen>
+      </handler>
+      <handler
+            commandId="com.pandora.pack.ui.viewprogress.command"
+            class="com.pandora.pack.ui.handlers.ViewPackStatusHandler" >
+      </handler>
+      
+      <handler
+            commandId="com.pandora.pack.ui.tomobile"
+            class="com.pandora.pack.ui.handlers.TOMobileHandler">
+            <enabledWhen>
+             	<with variable="selection">
+             		<iterate ifEmpty="false">
+                        <adapt type="org.eclipse.core.resources.IResource">
+                        	<and>
+                        		<not>
+		                        	 <test forcePluginActivation="true"
+						                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="false">
+						             </test>
+	                        	</not>
+	                        	<instanceof
+                                	value="org.eclipse.core.resources.IProject">
+	                        	</instanceof>
+                        	</and>
+		         		</adapt>
+                    </iterate>
+             	</with>
+            </enabledWhen>
+      </handler>
+      
+      <handler
+            commandId="com.pandora.pack.ui.makepackage.command"
+            class="com.pandora.pack.ui.handlers.MakePackageHandler">
+            <enabledWhen>
+	            <or>
+	            	<with variable="activePart">
+			             <test forcePluginActivation="true"
+			                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+			             </test>
+	             	</with>
+	             	<with variable="selection">
+	             		<iterate ifEmpty="false">
+	                        <adapt type="org.eclipse.core.resources.IResource">
+					             <test forcePluginActivation="true"
+					                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+					             </test>
+			         		</adapt>
+	                    </iterate>
+	             	</with>
+	            </or>
+            </enabledWhen>
+      </handler>
+      <handler
+            commandId="com.pandora.pack.ui.exportwgt.command"
+            class="com.pandora.pack.ui.handlers.ExportWGTHandler">
+            <enabledWhen>
+	            <or>
+	            	<with variable="activePart">
+			             <test forcePluginActivation="true"
+			                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+			             </test>
+	             	</with>
+	             	<with variable="selection">
+	             		<iterate ifEmpty="false">
+	                        <adapt type="org.eclipse.core.resources.IResource">
+					             <test forcePluginActivation="true"
+					                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+					             </test>
+			         		</adapt>
+	                    </iterate>
+	             	</with>
+	            </or>
+            </enabledWhen>
+      </handler>
+      <handler
+            commandId="com.pandora.pack.ui.exportld.command"
+            class="com.pandora.pack.ui.handlers.ExportWGTHandler">
+            <enabledWhen>
+	            <or>
+	            	<with variable="activePart">
+			             <test forcePluginActivation="true"
+			                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+			             </test>
+	             	</with>
+	             	<with variable="selection">
+	             		<iterate ifEmpty="false">
+	                        <adapt type="org.eclipse.core.resources.IResource">
+					             <test forcePluginActivation="true"
+					                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+					             </test>
+			         		</adapt>
+	                    </iterate>
+	             	</with>
+	            </or>
+            </enabledWhen>
+      </handler>
+      
+      
+      <handler
+            commandId="com.pandora.pack.ui.publishStreamApp.command"
+            class="com.pandora.pack.ui.handlers.PublishStreamAppHandler">
+            <enabledWhen>
+	            <or>
+	            	<with variable="activePart">
+			             <test forcePluginActivation="true"
+			                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+			             </test>
+	             	</with>
+	             	<with variable="selection">
+	             		<iterate ifEmpty="false">
+	                        <adapt type="org.eclipse.core.resources.IResource">
+					             <test forcePluginActivation="true"
+					                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+					             </test>
+			         		</adapt>
+	                    </iterate>
+	             	</with>
+	            </or>
+            </enabledWhen>
+      </handler>
+      <handler
+            commandId="com.pandora.pack.ui.kuaima.command"
+            class="com.pandora.pack.ui.handlers.KuaiMaHandler">
+            <enabledWhen>
+	            <or>
+	            	<with variable="activePart">
+			             <test forcePluginActivation="true"
+			                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+			             </test>
+	             	</with>
+	             	<with variable="selection">
+	             		<iterate ifEmpty="false">
+	                        <adapt type="org.eclipse.core.resources.IResource">
+					             <test forcePluginActivation="true"
+					                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+					             </test>
+			         		</adapt>
+	                    </iterate>
+	             	</with>
+	            </or>
+            </enabledWhen>
+      </handler>
+      <!--handler
+            commandId="com.pandora.pack.ui.confusion.command" 
+            class="com.pandora.pack.ui.handlers.ConfusionHandler" >
+            <enabledWhen>
+	             <or>
+	            	<with variable="activePart">
+			             <test forcePluginActivation="true"
+			                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+			             </test>
+	             	</with>
+	             	<with variable="selection">
+	             		<iterate ifEmpty="false">
+	                        <adapt type="org.eclipse.core.resources.IResource">
+					             <test forcePluginActivation="true"
+					                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+					             </test>
+			         		</adapt>
+	                    </iterate>
+	             	</with>
+	            </or>
+            </enabledWhen>
+      </handler-->
+   </extension>
+
+	<extension
+         point="org.eclipse.ui.menus">
+      <!--Publish-->
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:publish">
+          <!--menu icon="icons/make_installer.png"
+                    label="%Menu.Tools.Pack.label"-->
+		            <command
+		                  commandId="com.pandora.pack.ui.makepackage.command">
+		            </command>
+                    <command
+		                  commandId="com.pandora.pack.ui.opendownload.command">
+		            </command>
+		            <command
+		                  commandId="com.pandora.pack.ui.viewprogress.command">
+		            </command>
+		             <command
+		                  commandId="com.pandora.pack.ui.exportwgt.command">
+		            </command>
+		             <command
+		                  commandId="com.pandora.pack.ui.exportld.command">
+		            </command>
+	            	<command
+		                  commandId="com.pandora.ui.command.openurl" label="Android本地打包指南(&amp;A)" icon="icons/help.png">
+		                  <parameter
+                          		name="url" value="http://ask.dcloud.net.cn/article/38">
+		                  </parameter>
+		            </command>
+		            <command
+		                  commandId="com.pandora.ui.command.openurl"  label="iOS本地打包指南(&amp;I)" icon="icons/help.png">
+		                  <parameter
+                          		name="url" value="http://ask.dcloud.net.cn/article/41">
+		                  </parameter>
+		            </command>
+	                <separator
+			                name="com.pandora.pack.ui.separator1"
+			                visible="true">
+			        </separator>
+		            <command
+			              commandId="com.pandora.pack.ui.publishStreamApp.command" >
+			        </command>
+		            <command
+			              commandId="com.pandora.pack.ui.kuaima.command" >
+			        </command>
+			        <command
+		                  commandId="com.pandora.ui.command.openurl" label="流应用开发指南(&amp;D)" icon="icons/help.png">
+		                  <parameter
+                          		name="url" value="http://ask.dcloud.net.cn/article/406">
+		                  </parameter>
+		            </command>
+		             <!--separator
+			                name="com.pandora.pack.ui.separator2"
+			                visible="true">
+			        </separator>
+			        <command
+		                  commandId="com.pandora.pack.ui.confusion.command" >
+		            </command-->
+             <!--/menu--> 
+      </menuContribution>
+      
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?before=group.edit">
+            <command
+                  commandId="com.pandora.pack.ui.tomobile">
+                 <visibleWhen
+                       checkEnabled="true">
+                 </visibleWhen>
+            </command>
+            <menu id="com.pandora.ui.popup.publish"
+             		label="%Menu.Tools.Pack.label" >
+             		<visibleWhen checkEnabled="false">
+		              	<iterate ifEmpty="false">
+		              		<adapt type="org.eclipse.core.resources.IProject">
+					             <test forcePluginActivation="true"
+					                   property="com.pandora.ui.HMobileProject.test.isHMobile"  value="true">
+					             </test>
+				         	</adapt>
+				      	</iterate>
+		            </visibleWhen>
+             		<command
+		                  commandId="com.pandora.pack.ui.makepackage.command">
+		            </command>
+                    <command
+		                  commandId="com.pandora.pack.ui.opendownload.command">
+		            </command>
+		            <command
+		                  commandId="com.pandora.pack.ui.viewprogress.command">
+		            </command>
+		            <command
+		                  commandId="com.pandora.pack.ui.exportwgt.command">
+		            </command>
+		            <command
+		                  commandId="com.pandora.pack.ui.exportld.command">
+		            </command>
+		            <command
+		                  commandId="com.pandora.pack.ui.publishStreamApp.command">
+		            </command>
+		            <command
+		                  commandId="com.pandora.pack.ui.kuaima.command">
+		            </command>
+		     </menu>
+      </menuContribution>
+   	</extension>
+	<extension point="com.pandora.pack.core.downloadnotify">
+		<receive class="com.pandora.pack.ui.DownloadNotifier"></receive>
+	</extension>
+         
+</plugin>

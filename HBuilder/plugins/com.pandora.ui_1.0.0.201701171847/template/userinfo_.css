@@ -1,0 +1,230 @@
+body{
+	font-family: '微软雅黑',Arial;
+	margin:0px;
+	padding:0px;	
+}
+.userinfo{
+	width: 325px;
+	border: 1px solid #a7a7a7;
+	background: #f0f0f0;
+	height: 340px;
+}
+div.top{
+	
+	width:315px;
+	height: 15px;
+	margin:0px;padding:5px;font-size:14px;color:#000;
+	
+	text-align: right;
+	
+}
+.close{
+	width: 30px;
+	height: 20px;
+	float: right;
+	text-decoration:none;
+	margin-bottom:10px;
+	z-index: 9999;
+	cursor:default;
+	background: url(../icons/close_normal.png) no-repeat 0 ;
+}
+.close:hover{
+	background: url(../icons/close_hover.png) no-repeat 0 ;
+}
+.close:active{
+	background: url(../icons/close_active.png) no-repeat 0 ;
+}
+.email{
+	folat:left;
+	font-weight:bold ; 
+	width: 265px;
+	margin-top:10px;
+	margin-left:16px; 
+	height: 20px;
+	padding:0px;
+	font-size:14px;
+	color:#000;
+	text-align: left;
+}
+.integral{
+	float: left;
+	width: 265px;
+	margin-top:15px;
+	margin-left:5px; 
+	padding:0px;
+	font-size:14px;
+	color:#000;
+	text-align: left;
+}
+.count{
+	padding-left: 20px;
+	width: 280px;
+	float: left;
+}
+.qe{
+	width: 20px;
+	background: url(../icons/shield_on.png) no-repeat;
+	float: left;
+}
+.line{
+	float: left;
+	width: 308px;
+	margin-top: 25px;
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-bottom: 25px;
+	background: url(../icons/hr_line.png);
+	height: 2px;
+}
+.share{
+	float: left;
+	width: 300px;
+	margin-left:5px; 
+}
+.share ul{
+	list-style-type:none;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+.share ul li{
+	margin-left: 10px;
+	margin-bottom:14px;
+	width: 300px;
+	font-size: 14px;
+}
+.service{
+	color:#f36d00;
+}
+.buttom{
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 326px;
+	height: 53px;
+	background: url(../icons/bottom_bg.png)
+}
+.buttom_button{
+	width: 163px;
+	height: 53px;
+	float: left;
+	text-align: center;
+	line-height: 53px;
+}
+._buttom_button{
+	width: 93px;
+	height: 53px;
+	margin-left: 10px;
+	float: left;
+	text-align: center;
+	line-height: 53px;
+}
+.button{
+	width: 108px;
+	height: 28px;
+	background: url(../icons/button.png) no-repeat;
+	border: 0px;
+}
+._button{
+	background: url(../icons/_button.png) no-repeat;
+	width: 90px;
+	height: 26px;
+	border: 0px;
+}
+.login{
+	folat:left;
+	font-weight:bold ; 
+	margin-top:10px;
+	margin-left:5px; 
+	padding:0px;
+	font-size:14px;
+	color:#000;
+	text-align: left;
+}
+.logininfo{
+	folat:left;
+	font-weight:bold ; 
+	margin-top:10px;
+	margin-left:16px; 
+	height: 20px;
+	padding:0px;
+	font-size:20px;
+	color:#000;
+	text-align: left;
+}
+.login ul{
+	list-style-type:none;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 0px;
+	font-size: 10px;
+}
+.login ul li{
+	margin-bottom:16px;
+	margin-left: 10px;
+	text-align: center;
+	width: 300px;
+	 
+}
+.login ul li input{
+	width: 260px;
+	height: 25px;
+	border-radius:2px 2px 2px 2px; 
+}
+.changepwd{
+	float: left;
+	width: 300px;
+	margin-left:5px; 
+}
+.changepwd ul{
+	list-style-type:none;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+.changepwd ul li{
+	margin-left: 23px;
+	margin-bottom:22px;
+	width: 300px;
+	font-size: 14px;
+}
+.changepwd ul li input{
+	width: 260px;
+	height: 25px;
+	border-radius:2px 2px 2px 2px; 
+}
+.login ul li .show{
+	margin-top:-16px;
+	margin-left:6px;
+	width:280px;
+	height:25px;
+	display:block;
+	position: absolute;
+	border:1px solid #f68736;
+	border-radius:3px 3px 3px 3px;
+	font-size:14px;
+	text-align:center;
+	line-height:25px;
+	color:#f48533;
+}
+.login ul li .clear{
+	display:none;
+}
+.changepwd ul li .show{
+	margin-top:-16px;
+	margin-left:-6px;
+	width:280px;
+	height:25px;
+	display:block;
+	position: absolute;
+	border:1px solid #f68736;
+	border-radius:3px 3px 3px 3px;
+	font-size:14px;
+	text-align:center;
+	line-height:25px;
+	color:#f48533;
+}
+.changepwd ul li .clear{
+	display:none;
+}

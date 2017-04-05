@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-Vendor: DCloud
+Fragment-Host: com.pandora.tools.android;bundle-version="1.0.0"
+Bundle-Version: 1.0.0.201611041714
+Eclipse-PlatformFilter: (& (osgi.os=win32) (osgi.arch=x86))
+Bundle-Name: HBuilder Android Win32
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.pandora.tools.android.win32.x86;singleton:=tr
+ ue
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
+

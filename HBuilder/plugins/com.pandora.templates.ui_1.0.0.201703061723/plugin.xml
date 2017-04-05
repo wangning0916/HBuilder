@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.aptana.projects.projectTemplates">
+      <templateInfo
+            description="空模板只包含index.html一个文件和相关目录。"
+            icon="icons/project_template_blank.png"
+            id="com.pandora.templates.ui.templateInfo.default"
+            name="空模板"
+            priority="1"
+            replaceParameters="false"
+            type="APP">
+            <local location="templates/project/default.zip" />
+      </templateInfo>
+      <templateInfo
+            description="已包含mui的js、css、字体资源的项目模板"
+            icon="icons/mui.png"
+            id="com.pandora.templates.ui.templateInfo.mui"
+            name="mui项目"
+            priority="2"
+            replaceParameters="false"
+            type="APP">
+            <local location="templates/project/mui.zip" />
+      </templateInfo>
+      <templateInfo
+            description="HTML5Plus规范的演示，包括摄像头等各种底层能力的调用"
+            icon="icons/window6464.png"
+            id="com.pandora.templates.ui.templateInfo.helloplus"
+            name="Hello H5+"
+            priority="4"
+            replaceParameters="false"
+            ability="example"
+            type="APP">
+            <local location="templates/project/helloh5plus.zip" />
+      </templateInfo>
+   <!--
+      <templateInfo
+            description="新闻类App CSDN的源码"
+            icon="icons/csdn.png"
+            id="com.pandora.templates.ui.templateInfo.helloworld"
+            name="CSDN App"
+            priority="3"
+            replaceParameters="false"
+            type="APP">
+            <local location="templates/project/csdn.zip" />
+      </templateInfo>
+   -->
+      <templateInfo
+            description="mui前端框架各种UI控件（如按钮）的展示"
+            icon="icons/mui.png"
+            id="com.pandora.templates.ui.templateInfo.hellomui"
+            name="Hello mui"
+            priority="5"
+            replaceParameters="false"
+            ability="example"
+            type="APP">
+            <local location="templates/project/hellomui.zip" />
+      </templateInfo>
+      
+      <templateInfo
+            description="带登录和设置的MUI模板项目"
+            icon="icons/mui.png"
+            id="com.pandora.templates.ui.templateInfo.muiLoginSetting"
+            name="mui登录模板"
+            priority="3"
+            replaceParameters="false"
+            ability="template"
+            type="APP">
+            <local location="templates/project/mui-login-setting.zip" />
+      </templateInfo>
+      
+      <!--Web项目模板-->
+      <templateInfo
+            icon="icons/window6464.png"
+            id="com.pandora.templates.ui.templateInfo.web.default"
+            description="默认项目只包含index.html文件"
+            name="默认项目"
+            priority="1"
+            replaceParameters="false"
+            type="Web">
+            <local location="templates/project/web.zip" />
+      </templateInfo>
+      <templateInfo
+            description="该项目可以让你快速了解HBuilder，试一下吧！"
+            icon="icons/window6464.png"
+            id="com.pandora.templates.ui.templateInfo.web.hellohbuilder"
+            name="Hello HBuilder"
+            priority="2"
+            replaceParameters="false"
+            ability="example"
+            type="Web">
+            <local location="templates/project/hellohbuilder.zip" />
+      </templateInfo>
+      <templateInfo
+       		icon="icons/window6464.png"
+            description="微信WEB App，使用此模板支持微信JS-SDK的提示"
+            id="com.pandora.templates.ui.templateInfo.web.weixin"
+            name="微信项目"
+            priority="3"
+            replaceParameters="false"
+            type="Web"
+            natureID="com.pandora.projects.ui.wxNature">
+            <local location="templates/project/weixinproject.zip" />
+      </templateInfo>
+   </extension>
+   
+   <extension
+         point="com.aptana.scripting.applicationBundlePaths">
+      <bundlePath id="scripting.bundles" name="scriptingBundles" path="bundles/">
+      </bundlePath>
+   </extension>
+    <extension
+         point="com.aptana.scripting.loadPaths">
+      <loadPath
+            name="Framework Files"
+            path="framework/">
+      </loadPath>
+   </extension>
+   <extension
+         point="com.aptana.scripting.frameworkFiles">
+      <file
+            name="ruble/project.rb">
+      </file>
+   </extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution allPopups="false" locationURI="menu:tool?after=org.eclipse.ui.window.preferences">
+  			<menu label="扩展代码块(&amp;B)">
+ 				<dynamic class="com.pandora.templates.ui.EditorCodeBlocksItem" id="com.pandora.templates.ui.EditorCodeBlocksItem"></dynamic>
+  			</menu>
+		</menuContribution>
+	</extension>
+</plugin>

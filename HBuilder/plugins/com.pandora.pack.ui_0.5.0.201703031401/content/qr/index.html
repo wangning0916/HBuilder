@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script type="text/javascript" src="qrcode.js" ></script>
+	</head>
+
+	<body>
+		<canvas id="qr">
+		</canvas>
+		<script type="text/javascript">
+			var debug = false;
+			function createQR(url, width, foreground, imgData){
+				var background='#ffffff',
+					shadowColor='#618270',
+//					shadowColor='#005b29',
+					borderColor='#6bbc8f';
+				if(!foreground){
+					foreground = '#005b29';
+				}
+				var qrcode = new QRCode(-1, QRErrorCorrectLevel.Q);
+				qrcode.addData(url);
+				qrcode.make();
+				
+				// create canvas element
+				var canvas;
+				if(debug){
+					canvas = document.getElementById("qr");
+					canvas.style.border="1px red solid"
+				}else{
+					canvas = document.createElement("canvas");
+				}
+				canvas.width = width;
+				canvas.height = width;
+	
+				var shadowPadding = width / 40,
+					borderPadding = width / 50,
+					boxWidth = width - shadowPadding * 2;
+					borderWidth = 1;
+				qrWidth = width - shadowPadding *2 - borderPadding * 2 - borderWidth;
+				// compute tileW/tileH based on width/height
+				tileW = qrWidth / qrcode.getModuleCount();
+				
+				var ctx = canvas.getContext('2d');
+				ctx.shadowColor = shadowColor;
+				ctx.shadowBlur = shadowPadding;
+				ctx.shadowOffsetX = ctx.shadowOffsetY = shadowPadding;
+				
+				var offset = ctx.shadowBlur - ctx.shadowOffsetX;
+				
+				ctx.fillStyle = background;
+				ctx.fillRect(offset, offset, boxWidth, boxWidth);
+	
+				ctx.shadowColor = ctx.shadowOffsetX = ctx.shadowOffsetY = ctx.shadowBlur = null;
+				ctx.lineJoin = "round";
+				ctx.strokeStyle = borderColor;
+				ctx.strokeRect(offset + borderWidth, offset + borderWidth, boxWidth, boxWidth);
+				
+				
+				for(var row = 0; row < qrcode.getModuleCount(); row++) {
+					for(var col = 0; col < qrcode.getModuleCount(); col++) {
+						var dark = qrcode.isDark(row, col);
+						ctx.fillStyle = dark ? foreground : background;
+						var w = tileW;
+						if(col !== qrcode.getModuleCount()-1){
+							w = Math.ceil((col + 1) * tileW) - Math.floor(col * tileW);
+						}
+						var h = Math.ceil((row + 1) * tileW) - Math.floor(row * tileW);
+						ctx.fillRect(Math.round(col * tileW + borderPadding + borderWidth + offset), Math.round(row * tileW+ borderPadding + borderWidth + offset), w, h);
+					}
+				}
+				
+				if(imgData){
+					var img = new Image(),
+						has2Circle,
+						circleImageData;
+					img.onload=function(){
+						if(!has2Circle){
+	    					has2Circle = true;
+							var imgCanvas = document.createElement('canvas');
+							var imgCtx = imgCanvas.getContext('2d');
+							imgCanvas.height = img.height;
+							imgCanvas.width = img.width;
+							var pattern = imgCtx.createPattern(img, "no-repeat");
+							imgCtx.arc(img.width/2, img.height/2, Math.max(img.width, img.height) / 2, 0, 2 * Math.PI);
+							imgCtx.fillStyle = pattern;
+	    					imgCtx.fill();
+	    					circleImageData = imgCanvas.toDataURL();
+	    					img.src = circleImageData;
+						}else if(circleImageData){
+							var imgWidth = Math.round(boxWidth * 0.25),
+								imageXY = Math.round((width- shadowPadding -imgWidth)/2),
+								borderXY = imageXY + imgWidth/2;
+							imgBorderWidth = imgWidth/2 + borderPadding*2/3;
+							ctx.shadowColor = '#000000';
+							ctx.shadowOffsetX = ctx.shadowOffsetY = borderPadding/2;
+							ctx.shadowBlur = shadowPadding*3;
+							ctx.arc(borderXY, borderXY, imgBorderWidth, 0, 2 * Math.PI);
+							ctx.fillStyle = '#ffffff';
+	    					ctx.fill();
+	    					ctx.shadowColor = ctx.shadowOffsetX = ctx.shadowOffsetY = ctx.shadowBlur = null;
+							ctx.drawImage(img, imageXY, imageXY, imgWidth, imgWidth);
+							
+							notifyQRData(canvas);
+						}
+					};
+					img.src = 'data:image/png;base64,' + imgData;
+				}else{
+					notifyQRData(canvas);
+				}
+				
+			}
+			
+//			function resize(canvas, boxWidth){
+//				if(boxWidth>=0){
+//					notifyQRData(canvas);
+//				}else{
+//					var img = new Image();
+//					img.onload=function(){
+//						canvas.width = canvas.height = boxWidth;
+//						var ctx = canvas.getContext('2d')
+//						ctx.drawImage(img, 0, 0, boxWidth, boxWidth);
+//						notifyQRData(canvas);
+//					};
+//					img.src = canvas.toDataURL("image/png");
+//				}
+//			}
+			
+			function notifyQRData(canvas){
+				var data = canvas.toDataURL("image/png").replace('data:image/png;base64,','');
+				if(debug){
+					console.log(data);
+				}
+				if(window.cefQuery && data){
+					window.cefQuery({
+					    request: '_notifyQRData_?'+data,
+					    onSuccess: function(response) {},
+					    onFailure: function(error_code, error_message) {}
+					});
+				}else if(window._notifyQRData_){
+					_notifyQRData_(data);
+				}
+			}
+			
+//			debug = true;
+//			var imgData = 'iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAHeUlEQVR42u2ca1fURhjH8xH4BK14WwSvaOsFULGtlIKCCHKzlNpWrVe0tl+sp69FdHW5tNDT9oCwQqnam33RbzB9nsnM5JnJZHaDu2FTwzn/czSZnSS//J9nZpLJeIwxj2qxq6EONAFaALE3RAvimutMHiacXtC/bxAYU3jtvVZAsGN8006sW2oXW3JokUuUre45jWuAhHMSBiIu/Iyhs43RMstSaJU/T+4kmXOSCavuMIynqB6bmogs+y3QOKzKhludJ5JTVd2iOUWDAhff62uZ6pxFZL/8jYJnwqqcqya8arZWCowFSgBit68+XysOyTLqN+cIMBus13fUglftUFJgTCj04s/v0dVvkVmGQgvBEqAqEHpeVV2jgfEvJAQELr7Yv5cVB2IIyoegUWcRUK/rJq+iucYMJ+IYCqZoQrmA2seeSQ1aJPYVuXRYxX4bKMNNAlTc3ORVNKQsrgmBIVBCMIb2K60S0e0mNB2WBZTFTXFCzqsKHHQNyS86GB0IhzBMdYCtjliE22k5Axh3lglK5aiNQ/IqAUeGlMo10jUuMPJCBYA11Ciq2SG/XADNryMKlMxTy9RNJIGXA2lDgH7s2Mnyx7ey+8feZpMtW9hk6xb2oK2ePTm1nf0CB9Zcg6EkTj5wC4UiLv5iM/uV6uODgch2LKd+Y7oL6l8EGDMdOTbVvo1NnURtZVMntrLCe9vZzwAkLqQNAcofr2dRf4X3dwQJ+ILpGMMpNhhjB9m6RbjdhBbAEs6C+mc7c9HnBpCok8pJ3BsChM6J+sO7hnBkAlauIWA0KBzAIbb+iaFxInMflNeAEVCP4AZFnhs4acUINwWpUoCwP3EfwsoFSIdDQomA4c7QYLzDfkN96hDsX+eisAJQWH/+g53Oc6MtnJa4I0LN20hSnnQAeti+PQgpkmeka3Qw5OIvvcv1XOozIrFNlpG/4bAMUPnTbkC8k6kSt2jdHPkoFiDZnGNSjgQEiVoLKc01djABjMPs+ecO4X5R1goK6s+fzjlvHu0GcEglQs2LO4TAyibbopP0I0iEITjSNRAaKowu6VBeoL5AHXHIL0dhKVAi9B5/mHPePNkN4F0AM9QsQxIvzjCC93egsgdOQDv8sLLBsYGRUC4fYS+lrhwNS+zDchKWDdRjRyuGN8/vK4l+kspHZqjFBMTdQzqDLkB5aEV4znHBUY4xgFw9yn7nOmaRv58C46CUo3xITzob3IBEp1ILNbNVIy7yys090j1Y2ZSjH4StiErIUXCoY64IKF8eC3RNqiX4N91/lUASoCSkJx/tigYEN4/3vEmPO9SqGbnIK3s4QYYS2J+IBAStiErIBpyQaygYgPEH6rpDHFiL+s3Lq2E3Fbp2OW7eDr/XXcpFpEXzym258IkdxirSdgPKqaacJ2TDOSHXgDsUgBut7E/UTYtgO+6XZZWrDEiF7kanu9fEGM7uIv/JJG3RvDjJmT++gMpwfOMERJpyOxz/4pRjKJRbbewvi3C7LKNASTdBfRLStAsQuBtbV3RRVC4yk7UXK7z6JKBtkSfxuMMHFISWSMiGcyQc5RgJ4/ZxXxNEchsFFYLkO2n6TKPz5mEDsqq5aK/eeTTCzCuv9QrCqyQg6IdEuscKh4ABGH+j7pwIi8LikNpCkLD+koAuNgdhhi5yhVlJQGZ4IaD+0oA090B/RYUWyTkmHAXm7gn26u5J9uorIvg/blegLJBkTpo+2xQNCNwtB7bcRSTMQh1HEWZeyfzTo+cftCM+a4kE1JkLu4eGFsk5Co4J5t5J9s+9diX8vwkqgBTkJKx/pqfJGf58UOsKM6NnXRYgmn+Q9hSMaaIBNejNuuYeEVoy50jnIBwJ5ut2X9+cCiS2SVAcknCSzEm+i1oA0G6nu+WoP6o1M/OQFzdBY0UPHYC+PfwW76wVuhp5i4I5YRruKp74bO8eNtu3h82hzu9lcwP72PcX9rMfUGD3eWhd5oeb2fyIRbgd9mM5LI+/w9/zevr8erH+71rrSwLyw8yeh8oGZA4vVsoEVMt/HNBY8IBNNfdmoibDjvIAyRZMPGfGUXFaAa1TQCN6fyhI1LEANf1/AHXm1IM1d0sWNPUZoAxQ1QFlOShrxTbSiqWxH5SHY05eHkimH5TGnvQajP3m7owm1ZNO31hsDW6ME1BFx2IpHM1zQBOjCY3mU/g8aBWOOTcxktzzoLQ9UURAs6UAVfKJYtqeSa+OHyoBqNLPpFP2VuMZHHP29kiCbzVS9l7s2RgCGk72vVia3qwW4Zgzt4YTfrOaonfzKxdLAKrWu/m0zO5YgRszc3Mo+dkdaZkftAzHdQGq3vyglMwwWx46wKZvDG3ODLM0zFF8OrifTV8f3Lw5irU+y3UJjlsKUHVnudb4POklOG7h2uDmzpOu5Zn2Twf2sQXHUCOxmfa1+q1GEY7xEwwVCtCb39RvNbKvfbLvxbIvDrNvVmvqm9Xsq+fsu/ls5QUHoIVs7Q730hQTiaz8kr7VX9TiJsktj5Ou9YP85XE2ZYGl2l+BKlhgqSaW6Ko9jWeLvMVd5C1bJtC+TOB/TCVyRehDcqMAAAAASUVORK5CYII=';
+//			createQR('http://m3w.cn/s/eluosi?__streamapp', 300, '#005b29', imgData);
+		</script>
+	</body>
+
+</html>

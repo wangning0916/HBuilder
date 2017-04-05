@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Export-Package: com.pandora.tools.android
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.ui.workbench;bund
+ le-version="3.7.1",org.eclipse.jface;bundle-version="3.7.0",com.pando
+ ra.core.utils;bundle-version="1.0.0"
+Bundle-Vendor: DCloud
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201703061842
+Bundle-Name: HBuilder Android
+Bundle-Activator: com.pandora.tools.android.AndroidPlugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.pandora.tools.android
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
+
